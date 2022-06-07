@@ -19,7 +19,7 @@ return new class () extends Migration {
             $table->string('role')->nullable();
             $table->timestamps();
 
-            $table->unique(['team_id', 'user_id']);
+            $table->unique(['workspace_id', 'user_id']);
         });
     }
 
