@@ -16,7 +16,7 @@ Install node dependencies
 Compile the assets
 `npm run dev`
 
-Enable ide helpers (You should install (Laravel Ide Helper Plugin)[https://marketplace.visualstudio.com/items?itemName=georgykurian.laravel-ide-helper&ssr=false#review-details])
+Enable ide helpers - You should install (Laravel Ide Helper Plugin)[https://marketplace.visualstudio.com/items?itemName=georgykurian.laravel-ide-helper&ssr=false#review-details]
 `php artisan ide-helper:generate`
 `php artisan ide-helper:models`
 `php artisan ide-helper:eloquent`
