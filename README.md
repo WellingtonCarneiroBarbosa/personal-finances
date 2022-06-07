@@ -33,7 +33,7 @@ Requires: PHP8, Node18, Composer
 
     If you use PHPStorm, consider running
     `php artisan ide-helper:meta`
-6. Create link for the assets
+6. Link the assets
     `php artisan storage:link`
 
 7. Clone the .env file and setup using your database and Redis data
