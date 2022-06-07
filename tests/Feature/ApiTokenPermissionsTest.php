@@ -21,13 +21,13 @@ class ApiTokenPermissionsTest extends TestCase
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
         $token = $user->tokens()->create([
-            'name' => 'Test Token',
-            'token' => Str::random(40),
+            'name'      => 'Test Token',
+            'token'     => Str::random(40),
             'abilities' => ['create', 'read'],
         ]);
 
-        $response = $this->put('/user/api-tokens/'.$token->id, [
-            'name' => $token->name,
+        $response = $this->put('/user/api-tokens/' . $token->id, [
+            'name'        => $token->name,
             'permissions' => [
                 'delete',
                 'missing-permission',

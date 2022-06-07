@@ -18,9 +18,9 @@ class InviteTeamMemberTest extends TestCase
 
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
-        $response = $this->post('/teams/'.$user->currentTeam->id.'/members', [
+        $response = $this->post('/teams/' . $user->currentTeam->id . '/members', [
             'email' => 'test@example.com',
-            'role' => 'admin',
+            'role'  => 'admin',
         ]);
 
         Mail::assertSent(TeamInvitation::class);
@@ -36,10 +36,10 @@ class InviteTeamMemberTest extends TestCase
 
         $invitation = $user->currentTeam->teamInvitations()->create([
             'email' => 'test@example.com',
-            'role' => 'admin',
+            'role'  => 'admin',
         ]);
 
-        $response = $this->delete('/team-invitations/'.$invitation->id);
+        $response = $this->delete('/team-invitations/' . $invitation->id);
 
         $this->assertCount(0, $user->currentTeam->fresh()->teamInvitations);
     }
