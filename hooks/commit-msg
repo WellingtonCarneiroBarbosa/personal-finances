@@ -1,11 +1,9 @@
 #!/bin/bash
-# The script below adds the branch name automatically to
-# every one of your commit messages. The regular expression
-# below searches for JIRA issue key's. The issue key will
-# be extracted out of your branch name
+# The script below fixes your code
+# and add some helpers to ide's
 
 ./vendor/bin/php-cs-fixer fix
-php artisan ide-helper:eloquent
 php artisan ide-helper:generate
-php artisan ide-helper:models -y
-
+php artisan ide-helper:eloquent
+php artisan ide-helper:meta
+php artisan ide-helper:models
