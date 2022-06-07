@@ -8,7 +8,7 @@ use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 
-class Team extends JetstreamTeam
+class Workspace extends JetstreamTeam
 {
     use HasFactory;
 
@@ -18,17 +18,7 @@ class Team extends JetstreamTeam
      * @var array
      */
     protected $casts = [
-        'personal_team' => 'boolean',
-    ];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
-    protected $fillable = [
-        'name',
-        'personal_team',
+        'personal_workspace' => 'boolean',
     ];
 
     /**

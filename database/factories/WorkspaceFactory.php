@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Team;
 use App\Models\User;
+use App\Models\Workspace;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TeamFactory extends Factory
+class WorkspaceFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Team::class;
+    protected $model = Workspace::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +23,9 @@ class TeamFactory extends Factory
     public function definition()
     {
         return [
-            'name'          => $this->faker->unique()->company(),
-            'user_id'       => User::factory(),
-            'personal_team' => true,
+            'name'               => $this->faker->unique()->company(),
+            'user_id'            => User::factory(),
+            'personal_workspace' => true,
         ];
     }
 }
