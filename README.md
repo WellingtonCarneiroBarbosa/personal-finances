@@ -4,7 +4,7 @@ A simple pwa to manage personal finances - developed using Laravel, Inertia.js a
 ## How to run
 Requires: PHP8, Node18, Composer
 
-Clone te repo
+Clone the repo
 
 
 Install php dependences
