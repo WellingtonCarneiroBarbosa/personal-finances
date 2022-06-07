@@ -9,11 +9,8 @@ class Workspace extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
+    protected $guarded = ['id'];
+
     protected $casts = [
         'personal_workspace' => 'boolean',
     ];

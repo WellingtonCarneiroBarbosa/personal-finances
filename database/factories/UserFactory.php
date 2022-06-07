@@ -2,11 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Laravel\Jetstream\Features;
 
 class UserFactory extends Factory
 {
@@ -47,23 +45,14 @@ class UserFactory extends Factory
         });
     }
 
-    /**
-     * Indicate that the user should have a personal team.
-     *
-     * @return $this
-     */
-    public function withPersonalTeam()
+    public function withPersonalWorkspace(): self
     {
-        if (! Features::hasTeamFeatures()) {
-            return $this->state([]);
-        }
-
         return $this->has(
-            Team::factory()
+            WorkspaceFactory::factory()
                 ->state(function (array $attributes, User $user) {
-                    return ['name' => $user->name . '\'s Team', 'user_id' => $user->id, 'personal_team' => true];
+                    return ['name' => 'Personal Workspace', 'user_id' => $user->id, 'personal_workspace' => true];
                 }),
-            'ownedTeams'
+            'ownedWorkspaces'
         );
     }
 }
