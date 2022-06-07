@@ -6,17 +6,20 @@ import JetButton from '@/Jetstream/Button.vue';
 import JetInput from '@/Jetstream/Input.vue';
 import JetCheckbox from '@/Jetstream/Checkbox.vue';
 import JetLabel from '@/Jetstream/Label.vue';
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue';
+import JetInputError from '@/Jetstream/InputError.vue';
 
 defineProps({
     canResetPassword: Boolean,
-    status: String,
+    canRegister: {
+        type: Boolean,
+        default: true,
+    },
 });
 
 const form = useForm({
     email: '',
     password: '',
-    remember: false,
+    remember: true,
 });
 
 const submit = () => {
@@ -30,14 +33,13 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Log in" />
 
     <JetAuthenticationCard>
         <template #logo>
             <JetAuthenticationCardLogo />
         </template>
-
-        <JetValidationErrors class="mb-4" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
@@ -46,26 +48,16 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <JetLabel for="email" value="Email" />
-                <JetInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
+                <JetInput id="email" v-model="form.email" :invalid="form.errors.email" type="email"
+                    class="mt-1 block w-full" required autofocus />
+                <JetInputError :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
                 <JetLabel for="password" value="Password" />
-                <JetInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="current-password"
-                />
+                <JetInput id="password" v-model="form.password" type="password" class="mt-1 block w-full" required
+                    autocomplete="current-password" />
+                <JetInputError :message="form.errors.password" />
             </div>
 
             <div class="block mt-4">
@@ -76,8 +68,9 @@ const submit = () => {
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
+                <Link v-if="canResetPassword" :href="route('password.request')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900">
+                Forgot your password?
                 </Link>
 
                 <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -85,5 +78,15 @@ const submit = () => {
                 </JetButton>
             </div>
         </form>
+
+        <template #partial v-if="canRegister">
+            <div class="flex items-center mt-4">
+                <span class="text-sm text-gray-600 mr-1">Don't have an account?</span>
+                <Link :href="route('register')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                Create a free account
+                </Link>
+            </div>
+        </template>
+
     </JetAuthenticationCard>
 </template>
