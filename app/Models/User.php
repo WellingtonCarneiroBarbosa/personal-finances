@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -15,10 +16,18 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    protected $guarded = ['id'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $guarded = [
+        'id',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -50,13 +59,18 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function setNameAttribute(string $value): void
+    {
+        $this->attributes['name'] = Str::lower($value);
+    }
+
+    public function setEmailAttribute(string $value): void
+    {
+        $this->attributes['email'] = Str::lower($value);
+    }
+
     public function getNameAttribute(): string
     {
         return ucwords($this->attributes['name']);
-    }
-
-    public function getEmailAttribute(): string
-    {
-        return Str::lower($this->attributes['email']);
     }
 }

@@ -14,6 +14,7 @@ defineProps({
         type: Boolean,
         default: true,
     },
+    status: String,
 });
 
 const form = useForm({

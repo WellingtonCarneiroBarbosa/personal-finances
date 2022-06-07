@@ -1,7 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3';
 import img from "../../assets/img/Hysers.png";
-
 </script>
 
 <template>
