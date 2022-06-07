@@ -6,6 +6,9 @@ use App\Models\User;
 use App\Models\Workspace;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Workspace>
+ */
 class WorkspaceFactory extends Factory
 {
     /**
@@ -23,7 +26,7 @@ class WorkspaceFactory extends Factory
     public function definition()
     {
         return [
-            'name'               => $this->faker->unique()->company(),
+            'name'               => $this->faker->unique()->company() . "'s Workspace",
             'user_id'            => User::factory(),
             'personal_workspace' => true,
         ];

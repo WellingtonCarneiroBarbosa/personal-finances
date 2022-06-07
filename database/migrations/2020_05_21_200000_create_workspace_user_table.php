@@ -16,7 +16,6 @@ return new class () extends Migration {
             $table->id();
             $table->foreignId('workspace_id');
             $table->foreignId('user_id');
-            $table->string('role')->nullable();
             $table->timestamps();
 
             $table->unique(['workspace_id', 'user_id']);

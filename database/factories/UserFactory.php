@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Workspace;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -48,7 +49,7 @@ class UserFactory extends Factory
     public function withPersonalWorkspace(): self
     {
         return $this->has(
-            WorkspaceFactory::factory()
+            Workspace::factory()
                 ->state(function (array $attributes, User $user) {
                     return ['name' => 'Personal Workspace', 'user_id' => $user->id, 'personal_workspace' => true];
                 }),
