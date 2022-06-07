@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Laravel\Jetstream\TeamInvitation as JetstreamTeamInvitation;
+use Illuminate\Database\Eloquent\Model;
 
-class WorkspaceInvitation extends JetstreamTeamInvitation
+class WorkspaceInvitation extends Model
 {
     /**
      * Get the team that the invitation belongs to.

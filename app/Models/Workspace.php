@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Laravel\Jetstream\Events\TeamCreated;
-use Laravel\Jetstream\Events\TeamDeleted;
-use Laravel\Jetstream\Events\TeamUpdated;
-use Laravel\Jetstream\Team as JetstreamTeam;
+use Illuminate\Database\Eloquent\Model;
 
-class Workspace extends JetstreamTeam
+class Workspace extends Model
 {
     use HasFactory;
 
@@ -19,16 +16,5 @@ class Workspace extends JetstreamTeam
      */
     protected $casts = [
         'personal_workspace' => 'boolean',
-    ];
-
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $dispatchesEvents = [
-        'created' => TeamCreated::class,
-        'updated' => TeamUpdated::class,
-        'deleted' => TeamDeleted::class,
     ];
 }
