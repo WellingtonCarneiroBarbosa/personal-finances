@@ -16,6 +16,14 @@ Install node dependencies
 Compile the assets
 `npm run dev`
 
+Enable ide helpers (You should install (Laravel Ide Helper Plugin)[https://marketplace.visualstudio.com/items?itemName=georgykurian.laravel-ide-helper&ssr=false#review-details])
+`php artisan ide-helper:generate`
+`php artisan ide-helper:models`
+`php artisan ide-helper:eloquent`
+
+If you use PHPStorm, consider running
+`php artisan ide-helper:meta`
+
 P.S: If there is a error, just compile the assets again
 
 Clone the .env file and setup using your database and Redis data
