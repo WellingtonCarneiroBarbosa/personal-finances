@@ -30,6 +30,8 @@ Requires: PHP8, Node18, Composer
 
 
     `php artisan ide-helper:eloquent`
+    
+    `php artisan ide-helper:actions`
 
     If you use PHPStorm, consider running
     `php artisan ide-helper:meta`
