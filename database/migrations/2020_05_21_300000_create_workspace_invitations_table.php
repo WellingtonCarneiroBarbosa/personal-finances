@@ -12,12 +12,13 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('workspace_invitations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->index();
-            $table->string('name');
-            $table->boolean('personal_team');
+            $table->foreignId('workspace_id')->constrained()->cascadeOnDelete();
+            $table->string('email');
             $table->timestamps();
+
+            $table->unique(['workspace_id', 'email']);
         });
     }
 
@@ -28,6 +29,6 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('workspace_invitations');
     }
 };
