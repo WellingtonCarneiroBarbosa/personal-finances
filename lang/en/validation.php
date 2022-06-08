@@ -166,4 +166,8 @@ return [
 
     'attributes' => [],
 
+    'workspaces' => [
+        'delete_personal' => 'Personal workspaces cannot be deleted.',
+    ],
+
 ];
