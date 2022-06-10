@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Actions\Fortify\Application\Workspaces\CreateNewWorkspace;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\Searchable;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -49,6 +50,15 @@ class User extends Authenticatable
     public function current_workspace()
     {
         return $this->belongsTo(Workspace::class, 'current_workspace_id');
+    }
+
+    public function currentWorkspace(): Workspace
+    {
+        if (! $workspace = $this->current_workspace) {
+            return CreateNewWorkspace::run($this);
+        }
+
+        return $workspace;
     }
 
     public function isSuperAdmin()

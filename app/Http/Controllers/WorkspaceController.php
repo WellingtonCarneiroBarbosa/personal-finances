@@ -20,7 +20,6 @@ class WorkspaceController extends Controller
         $search = $request->get('search', '');
 
         $workspaces = Workspace::search($search)
-            ->user()
             ->latest()
             ->paginate(5)
             ->withQueryString();
