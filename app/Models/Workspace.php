@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Workspace extends Model
@@ -33,5 +34,10 @@ class Workspace extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'current_workspace_id');
+    }
+
+    public function scopeUser(Builder $query, ?User $user = null): Builder
+    {
+        return $query->where('user_id', $user ?? auth()->user()?->id);
     }
 }
