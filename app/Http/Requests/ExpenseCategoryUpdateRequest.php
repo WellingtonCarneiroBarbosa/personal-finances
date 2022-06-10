@@ -25,7 +25,6 @@ class ExpenseCategoryUpdateRequest extends FormRequest
     {
         return [
             'title'        => ['required', 'max:255', 'string'],
-            'workspace_id' => ['required', 'exists:workspaces,id'],
         ];
     }
 }

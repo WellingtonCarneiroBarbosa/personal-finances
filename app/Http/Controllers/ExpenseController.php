@@ -6,7 +6,6 @@ use App\Http\Requests\ExpenseStoreRequest;
 use App\Http\Requests\ExpenseUpdateRequest;
 use App\Models\Expense;
 use App\Models\ExpenseCategory;
-use App\Models\Workspace;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -38,11 +37,10 @@ class ExpenseController extends Controller
         $this->authorize('create', Expense::class);
 
         $expenseCategories = ExpenseCategory::pluck('title', 'id');
-        $workspaces        = Workspace::pluck('name', 'id');
 
         return view(
             'app.expenses.create',
-            compact('expenseCategories', 'workspaces')
+            compact('expenseCategories')
         );
     }
 
@@ -54,9 +52,7 @@ class ExpenseController extends Controller
     {
         $this->authorize('create', Expense::class);
 
-        $validated = $request->validated();
-
-        $expense = Expense::create($validated);
+        $expense = Expense::create($request->validated());
 
         return redirect()
             ->route('expenses.edit', $expense)
@@ -85,11 +81,10 @@ class ExpenseController extends Controller
         $this->authorize('update', $expense);
 
         $expenseCategories = ExpenseCategory::pluck('title', 'id');
-        $workspaces        = Workspace::pluck('name', 'id');
 
         return view(
             'app.expenses.edit',
-            compact('expense', 'expenseCategories', 'workspaces')
+            compact('expense', 'expenseCategories')
         );
     }
 

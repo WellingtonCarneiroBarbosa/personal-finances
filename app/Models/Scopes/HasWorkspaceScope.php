@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-class HasUser implements Scope
+class HasWorkspaceScope implements Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
@@ -18,7 +18,7 @@ class HasUser implements Scope
     public function apply(Builder $builder, Model $model)
     {
         if (auth()->check()) {
-            $builder->where('user_id', auth()->user()->id);
+            $builder->where('workspace_id', auth()->user()->currentWorkspace()->id);
         }
     }
 }

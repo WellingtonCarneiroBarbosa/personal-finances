@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Fortify\Application\Workspaces;
+namespace App\Actions\Application\Workspaces;
 
 use App\Models\User;
 use App\Models\Workspace;

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\HasWorkspace;
+use App\Models\Scopes\HasWorkspaceScope;
 use App\Models\Scopes\Searchable;
+use App\Traits\Models\HasWorkspace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +12,7 @@ class ExpenseCategory extends Model
 {
     use HasFactory;
     use Searchable;
+    use HasWorkspace;
 
     protected $fillable = ['title', 'workspace_id'];
 
@@ -20,7 +22,7 @@ class ExpenseCategory extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope(new HasWorkspace());
+        static::addGlobalScope(new HasWorkspaceScope());
     }
 
     public function expenses()

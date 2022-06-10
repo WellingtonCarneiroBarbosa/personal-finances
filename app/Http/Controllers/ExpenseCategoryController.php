@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ExpenseCategoryStoreRequest;
 use App\Http\Requests\ExpenseCategoryUpdateRequest;
 use App\Models\ExpenseCategory;
-use App\Models\Workspace;
 use Illuminate\Http\Request;
 
 class ExpenseCategoryController extends Controller
@@ -39,9 +38,7 @@ class ExpenseCategoryController extends Controller
     {
         $this->authorize('create', ExpenseCategory::class);
 
-        $workspaces = Workspace::pluck('name', 'id');
-
-        return view('app.expense_categories.create', compact('workspaces'));
+        return view('app.expense_categories.create');
     }
 
     /**
@@ -82,11 +79,9 @@ class ExpenseCategoryController extends Controller
     {
         $this->authorize('update', $expenseCategory);
 
-        $workspaces = Workspace::pluck('name', 'id');
-
         return view(
             'app.expense_categories.edit',
-            compact('expenseCategory', 'workspaces')
+            compact('expenseCategory')
         );
     }
 

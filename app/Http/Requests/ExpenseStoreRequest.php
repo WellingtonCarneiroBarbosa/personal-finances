@@ -31,7 +31,6 @@ class ExpenseStoreRequest extends FormRequest
                 'required',
                 'exists:expense_categories,id',
             ],
-            'workspace_id' => ['required', 'exists:workspaces,id'],
         ];
     }
 }

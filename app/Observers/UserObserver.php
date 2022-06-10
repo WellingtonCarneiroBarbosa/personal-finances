@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Actions\Fortify\Application\Workspaces\CreateNewWorkspace;
+use App\Actions\Application\Workspaces\CreateNewWorkspace;
 use App\Models\User;
 
 class UserObserver
