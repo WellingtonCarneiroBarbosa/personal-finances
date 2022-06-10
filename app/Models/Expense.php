@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\Models\Scopes\HasWorkspace;
 use App\Models\Scopes\Searchable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Expense extends Model
 {
@@ -24,7 +24,7 @@ class Expense extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope(new HasWorkspace);
+        static::addGlobalScope(new HasWorkspace());
     }
 
     public function expenseCategory()

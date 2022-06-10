@@ -6,14 +6,15 @@ use App\Models\User;
 use App\Models\Workspace;
 use App\Models\WorkspaceUser;
 
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class WorkspaceWorkspaceUsersTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -31,7 +32,7 @@ class WorkspaceWorkspaceUsersTest extends TestCase
      */
     public function it_gets_workspace_workspace_users()
     {
-        $workspace = Workspace::factory()->create();
+        $workspace      = Workspace::factory()->create();
         $workspaceUsers = WorkspaceUser::factory()
             ->count(2)
             ->create([
@@ -51,7 +52,7 @@ class WorkspaceWorkspaceUsersTest extends TestCase
     public function it_stores_the_workspace_workspace_users()
     {
         $workspace = Workspace::factory()->create();
-        $data = WorkspaceUser::factory()
+        $data      = WorkspaceUser::factory()
             ->make([
                 'workspace_id' => $workspace->id,
             ])

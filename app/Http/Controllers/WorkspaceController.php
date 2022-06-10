@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Workspace;
-use Illuminate\Http\Request;
 use App\Http\Requests\WorkspaceStoreRequest;
 use App\Http\Requests\WorkspaceUpdateRequest;
+use App\Models\Workspace;
+use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
 {

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Workspace;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\WorkspaceResource;
-use App\Http\Resources\WorkspaceCollection;
 use App\Http\Requests\WorkspaceStoreRequest;
 use App\Http\Requests\WorkspaceUpdateRequest;
+use App\Http\Resources\WorkspaceCollection;
+use App\Http\Resources\WorkspaceResource;
+use App\Models\Workspace;
+use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
 {

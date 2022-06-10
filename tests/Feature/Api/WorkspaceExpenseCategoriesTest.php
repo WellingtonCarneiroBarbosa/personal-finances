@@ -2,18 +2,19 @@
 
 namespace Tests\Feature\Api;
 
+use App\Models\ExpenseCategory;
 use App\Models\User;
 use App\Models\Workspace;
-use App\Models\ExpenseCategory;
 
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class WorkspaceExpenseCategoriesTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -31,7 +32,7 @@ class WorkspaceExpenseCategoriesTest extends TestCase
      */
     public function it_gets_workspace_expense_categories()
     {
-        $workspace = Workspace::factory()->create();
+        $workspace         = Workspace::factory()->create();
         $expenseCategories = ExpenseCategory::factory()
             ->count(2)
             ->create([
@@ -51,7 +52,7 @@ class WorkspaceExpenseCategoriesTest extends TestCase
     public function it_stores_the_workspace_expense_categories()
     {
         $workspace = Workspace::factory()->create();
-        $data = ExpenseCategory::factory()
+        $data      = ExpenseCategory::factory()
             ->make([
                 'workspace_id' => $workspace->id,
             ])

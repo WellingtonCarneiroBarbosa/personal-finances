@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\ExpenseCollection;
+use App\Http\Resources\ExpenseResource;
 use App\Models\Workspace;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\ExpenseResource;
-use App\Http\Resources\ExpenseCollection;
 
 class WorkspaceExpensesController extends Controller
 {
@@ -40,9 +40,9 @@ class WorkspaceExpensesController extends Controller
         $this->authorize('create', Expense::class);
 
         $validated = $request->validate([
-            'title' => ['required', 'max:255', 'string'],
-            'cost' => ['required', 'regex:/^\d{1,13}(\.\d{1,4})?$/'],
-            'description' => ['nullable', 'max:255', 'string'],
+            'title'               => ['required', 'max:255', 'string'],
+            'cost'                => ['required', 'regex:/^\d{1,13}(\.\d{1,4})?$/'],
+            'description'         => ['nullable', 'max:255', 'string'],
             'expense_category_id' => [
                 'required',
                 'exists:expense_categories,id',

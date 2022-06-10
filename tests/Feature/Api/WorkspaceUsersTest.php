@@ -5,14 +5,15 @@ namespace Tests\Feature\Api;
 use App\Models\User;
 use App\Models\Workspace;
 
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class WorkspaceUsersTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -31,7 +32,7 @@ class WorkspaceUsersTest extends TestCase
     public function it_gets_workspace_users()
     {
         $workspace = Workspace::factory()->create();
-        $users = User::factory()
+        $users     = User::factory()
             ->count(2)
             ->create([
                 'current_workspace_id' => $workspace->id,
@@ -50,7 +51,7 @@ class WorkspaceUsersTest extends TestCase
     public function it_stores_the_workspace_users()
     {
         $workspace = Workspace::factory()->create();
-        $data = User::factory()
+        $data      = User::factory()
             ->make([
                 'current_workspace_id' => $workspace->id,
             ])

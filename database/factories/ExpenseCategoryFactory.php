@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Str;
 use App\Models\ExpenseCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,7 +22,7 @@ class ExpenseCategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(10),
+            'title'        => $this->faker->sentence(10),
             'workspace_id' => \App\Models\Workspace::factory(),
         ];
     }

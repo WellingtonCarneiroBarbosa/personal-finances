@@ -3,22 +3,23 @@
 namespace Tests\Feature\Controllers;
 
 use App\Models\User;
-use Spatie\Permission\Models\Permission;
-
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
+use Illuminate\Foundation\Testing\WithFaker;
+use Spatie\Permission\Models\Permission;
+use Tests\TestCase;
 
 class PermissionControllerTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->actingAs(User::factory()->create(['email' => 'admin@admin.com']));
-        
+
         $this->seed(\Database\Seeders\PermissionsSeeder::class);
 
         $this->withoutExceptionHandling();
@@ -53,8 +54,8 @@ class PermissionControllerTest extends TestCase
     public function it_stores_the_permission()
     {
         $response = $this->post(route('permissions.store'), [
-            'name' => 'list secretaries',
-            'roles' => []
+            'name'  => 'list secretaries',
+            'roles' => [],
         ]);
 
         $this->assertDatabaseHas('permissions', ['name' => 'list secretaries']);
@@ -102,15 +103,15 @@ class PermissionControllerTest extends TestCase
         $permission = Permission::first();
 
         $data = [
-            'name' => 'list managers',
+            'name'  => 'list managers',
             'roles' => [],
         ];
 
         $response = $this->put(route('permissions.update', $permission), $data);
 
         $this->assertDatabaseHas('permissions', [
-            'id' => $permission->id,
-            'name' => 'list managers'
+            'id'   => $permission->id,
+            'name' => 'list managers',
         ]);
 
         $response->assertRedirect(route('permissions.edit', $permission));
@@ -126,7 +127,7 @@ class PermissionControllerTest extends TestCase
         $response = $this->delete(route('permissions.destroy', $permission));
 
         $response->assertRedirect(route('permissions.index'));
-        
+
         $this->assertModelMissing($permission);
     }
 }

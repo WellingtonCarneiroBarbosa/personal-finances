@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Sanctum\Sanctum;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
@@ -18,7 +18,7 @@ class PermissionController extends Controller
     {
         $this->authorize('list', Permission::class);
 
-        $search = $request->get('search', '');
+        $search      = $request->get('search', '');
         $permissions = Permission::where('name', 'like', "%{$search}%")->paginate(10);
 
         return view('app.permissions.index')
@@ -36,6 +36,7 @@ class PermissionController extends Controller
         $this->authorize('create', Permission::class);
 
         $roles = Role::all();
+
         return view('app.permissions.create')->with('roles', $roles);
     }
 
@@ -52,12 +53,12 @@ class PermissionController extends Controller
         $this->authorize('create', Permission::class);
 
         $data = $this->validate($request, [
-            'name' => 'required|max:64',
-            'roles' => 'array'
+            'name'  => 'required|max:64',
+            'roles' => 'array',
         ]);
 
         $permission = Permission::create($data);
-        
+
         $roles = Role::find($request->roles);
         $permission->syncRoles($roles);
 
@@ -108,12 +109,12 @@ class PermissionController extends Controller
         $this->authorize('update', $permission);
 
         $data = $this->validate($request, [
-            'name' => 'required|max:40',
-            'roles' => 'array'
+            'name'  => 'required|max:40',
+            'roles' => 'array',
         ]);
 
         $permission->update($data);
-        
+
         $roles = Role::find($request->roles);
         $permission->syncRoles($roles);
 

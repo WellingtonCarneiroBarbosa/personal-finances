@@ -2,20 +2,21 @@
 
 namespace Tests\Feature\Api;
 
-use App\Models\User;
 use App\Models\Expense;
-
-use App\Models\Workspace;
 use App\Models\ExpenseCategory;
 
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
+use App\Models\Workspace;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class ExpenseTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -66,14 +67,14 @@ class ExpenseTest extends TestCase
         $expense = Expense::factory()->create();
 
         $expenseCategory = ExpenseCategory::factory()->create();
-        $workspace = Workspace::factory()->create();
+        $workspace       = Workspace::factory()->create();
 
         $data = [
-            'title' => $this->faker->sentence(10),
-            'cost' => $this->faker->randomNumber(2),
-            'description' => $this->faker->sentence(15),
+            'title'               => $this->faker->sentence(10),
+            'cost'                => $this->faker->randomNumber(2),
+            'description'         => $this->faker->sentence(15),
             'expense_category_id' => $expenseCategory->id,
-            'workspace_id' => $workspace->id,
+            'workspace_id'        => $workspace->id,
         ];
 
         $response = $this->putJson(

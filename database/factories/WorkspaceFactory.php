@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Workspace;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class WorkspaceFactory extends Factory
@@ -23,7 +22,7 @@ class WorkspaceFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name'    => $this->faker->name,
             'user_id' => \App\Models\User::factory(),
         ];
     }

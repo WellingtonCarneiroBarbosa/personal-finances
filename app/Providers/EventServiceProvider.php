@@ -20,12 +20,12 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $observers = [
         User::class => [
-            UserObserver::class
+            UserObserver::class,
         ],
 
         Workspace::class => [
-            WorkspaceObserver::class
-        ]
+            WorkspaceObserver::class,
+        ],
     ];
 
     /**

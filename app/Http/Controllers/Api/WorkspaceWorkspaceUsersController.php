@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\WorkspaceUserCollection;
+use App\Http\Resources\WorkspaceUserResource;
 use App\Models\Workspace;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\WorkspaceUserResource;
-use App\Http\Resources\WorkspaceUserCollection;
 
 class WorkspaceWorkspaceUsersController extends Controller
 {

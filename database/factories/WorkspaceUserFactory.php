@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Illuminate\Support\Str;
 use App\Models\WorkspaceUser;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,7 +22,7 @@ class WorkspaceUserFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => \App\Models\User::factory(),
+            'user_id'      => \App\Models\User::factory(),
             'workspace_id' => \App\Models\Workspace::factory(),
         ];
     }

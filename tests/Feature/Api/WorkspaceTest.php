@@ -5,14 +5,15 @@ namespace Tests\Feature\Api;
 use App\Models\User;
 use App\Models\Workspace;
 
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class WorkspaceTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -67,7 +68,7 @@ class WorkspaceTest extends TestCase
         $user = User::factory()->create();
 
         $data = [
-            'name' => $this->faker->name,
+            'name'    => $this->faker->name,
             'user_id' => $user->id,
         ];
 

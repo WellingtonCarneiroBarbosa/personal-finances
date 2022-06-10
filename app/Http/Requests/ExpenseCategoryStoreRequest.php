@@ -24,7 +24,7 @@ class ExpenseCategoryStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:255', 'string'],
+            'title'        => ['required', 'max:255', 'string'],
             'workspace_id' => ['required', 'exists:workspaces,id'],
         ];
     }

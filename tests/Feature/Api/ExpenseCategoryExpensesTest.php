@@ -2,18 +2,19 @@
 
 namespace Tests\Feature\Api;
 
-use App\Models\User;
 use App\Models\Expense;
 use App\Models\ExpenseCategory;
+use App\Models\User;
 
-use Tests\TestCase;
-use Laravel\Sanctum\Sanctum;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Laravel\Sanctum\Sanctum;
+use Tests\TestCase;
 
 class ExpenseCategoryExpensesTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -32,7 +33,7 @@ class ExpenseCategoryExpensesTest extends TestCase
     public function it_gets_expense_category_expenses()
     {
         $expenseCategory = ExpenseCategory::factory()->create();
-        $expenses = Expense::factory()
+        $expenses        = Expense::factory()
             ->count(2)
             ->create([
                 'expense_category_id' => $expenseCategory->id,
@@ -51,7 +52,7 @@ class ExpenseCategoryExpensesTest extends TestCase
     public function it_stores_the_expense_category_expenses()
     {
         $expenseCategory = ExpenseCategory::factory()->create();
-        $data = Expense::factory()
+        $data            = Expense::factory()
             ->make([
                 'expense_category_id' => $expenseCategory->id,
             ])

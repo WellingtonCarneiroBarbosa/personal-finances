@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Expense;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ExpenseResource;
-use App\Http\Resources\ExpenseCollection;
 use App\Http\Requests\ExpenseStoreRequest;
 use App\Http\Requests\ExpenseUpdateRequest;
+use App\Http\Resources\ExpenseCollection;
+use App\Http\Resources\ExpenseResource;
+use App\Models\Expense;
+use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {

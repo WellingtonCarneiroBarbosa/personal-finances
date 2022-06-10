@@ -5,13 +5,14 @@ namespace Tests\Feature\Controllers;
 use App\Models\User;
 use App\Models\Workspace;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
 
 class WorkspaceControllerTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     protected function setUp(): void
     {
@@ -111,7 +112,7 @@ class WorkspaceControllerTest extends TestCase
         $user = User::factory()->create();
 
         $data = [
-            'name' => $this->faker->name,
+            'name'    => $this->faker->name,
             'user_id' => $user->id,
         ];
 
