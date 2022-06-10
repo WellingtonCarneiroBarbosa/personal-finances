@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Scopes\HasUser;
+use App\Models\Scopes\HasUser;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Scopes\HasWorkspace;
+use App\Models\Scopes\HasWorkspace;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
