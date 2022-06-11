@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\App\Expenses;
 
+use App\Actions\Application\Expenses\Category\DeleteCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExpenseCategoryStoreRequest;
 use App\Http\Requests\ExpenseCategoryUpdateRequest;
@@ -117,7 +118,7 @@ class ExpenseCategoryController extends Controller
     {
         $this->authorize('delete', $expenseCategory);
 
-        $expenseCategory->delete();
+        DeleteCategory::run($expenseCategory);
 
         return redirect()
             ->route('expense-categories.index')

@@ -12,6 +12,7 @@ return [
         'detach'          => 'Detach',
         'save'            => 'Save',
         'delete'          => 'Delete',
+        'cannot_delete'   => 'You can not delete :entity',
         'delete_selected' => 'Delete selected',
         'search'          => 'Search...',
         'back'            => 'Back to List',

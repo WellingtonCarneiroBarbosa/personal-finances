@@ -48,9 +48,11 @@
                         </thead>
                         <tbody class="text-gray-600">
                             @forelse($expenseCategories as $expenseCategory)
-                                <tr class="hover:bg-gray-50">
+                                <tr class="{{ $expenseCategory->default ? 'bg-gray-50' : 'hover:bg-gray-50' }}">
                                     <td class="px-4 py-3 text-left">
-                                        {{ $expenseCategory->name ?? '-' }}
+                                        @if ($expenseCategory?->name && $expenseCategory->default)
+                                            {{ 'Default Category:' }}
+                                        @endif {{ $expenseCategory->name ?? '-' }}
                                     </td>
                                     <td class="px-4 py-3 text-center" style="width: 134px;">
                                         <div role="group" aria-label="Row Actions"
