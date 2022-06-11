@@ -15,7 +15,7 @@ return new class () extends Migration {
         Schema::create('expense_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->unsignedBigInteger('workspace_id');
+            $table->foreignId('workspace_id')->index();
             $table->boolean('default')->default(false);
 
             $table->timestamps();

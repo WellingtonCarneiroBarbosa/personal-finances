@@ -25,8 +25,8 @@ class ExpenseFactory extends Factory
             'title'               => $this->faker->sentence(10),
             'cost'                => $this->faker->randomNumber(2),
             'description'         => $this->faker->sentence(15),
-            'expense_category_id' => \App\Models\ExpenseCategory::factory(),
-            'workspace_id'        => \App\Models\Workspace::factory(),
+            'expense_category_id' => $category = \App\Models\ExpenseCategory::factory(),
+            'workspace_id'        => $category->workspace_id,
         ];
     }
 }

@@ -24,7 +24,7 @@ return new class () extends Migration {
             $table->timestamp('two_factor_confirmed_at')->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
-            $table->foreignId('current_workspace_id')->nullable();
+            $table->foreignId('current_workspace_id')->index()->nullable();
 
             $table->timestamps();
         });

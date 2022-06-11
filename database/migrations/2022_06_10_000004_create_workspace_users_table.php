@@ -14,8 +14,8 @@ return new class () extends Migration {
     {
         Schema::create('workspace_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('workspace_id');
+            $table->foreignId('user_id')->index();
+            $table->foreignId('workspace_id')->index();
 
             $table->timestamps();
         });

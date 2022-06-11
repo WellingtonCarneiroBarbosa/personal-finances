@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,18 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Adding an admin user
-        $user = \App\Models\User::factory()
-            ->count(1)
-            ->create([
-                'email'    => 'admin@admin.com',
-                'password' => \Hash::make('admin'),
-            ]);
-
-        $this->call(ExpenseSeeder::class);
-        $this->call(ExpenseCategorySeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(WorkspaceSeeder::class);
-        $this->call(WorkspaceUserSeeder::class);
+        if (config('app.env') === 'local') {
+            \App\Models\User::factory()
+                ->count(1)
+                ->create([
+                    'name'     => 'User Example',
+                    'email'    => 'user@example.com',
+                    'password' => Hash::make('password'),
+                ]);
+        }
     }
 }

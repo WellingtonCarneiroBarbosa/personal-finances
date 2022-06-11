@@ -17,8 +17,8 @@ return new class () extends Migration {
             $table->string('title');
             $table->float('cost');
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('expense_category_id');
-            $table->unsignedBigInteger('workspace_id');
+            $table->foreignId('expense_category_id')->index();
+            $table->foreignId('workspace_id')->index();
 
             $table->timestamps();
         });
