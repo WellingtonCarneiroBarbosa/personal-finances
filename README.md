@@ -1,5 +1,5 @@
 # Personal Finances
-A simple pwa to manage personal finances - developed using Laravel9, Inertia.js and Vue3
+A simple pwa to manage personal finances - developed using Laravel9, Livewire and nothing more
 
 ## How to run
 Requires: PHP8, Node18, Composer
