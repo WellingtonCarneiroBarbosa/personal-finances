@@ -53,6 +53,8 @@ class WorkspaceController extends Controller
 
         $workspace = CreateNewWorkspace::run(auth()->user(), $validated);
 
+        auth()->user()->switchWorkspace($workspace);
+
         return redirect()
             ->route('workspaces.edit', $workspace)
             ->withSuccess(__('crud.common.created'));
