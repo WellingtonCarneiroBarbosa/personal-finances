@@ -6,6 +6,7 @@ use App\Models\Scopes\HasUserScope;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Workspace extends Model
 {
@@ -39,5 +40,29 @@ class Workspace extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'current_workspace_id');
+    }
+
+    public function currentWorkspaceUsers()
+    {
+        return $this->hasMany(User::class, 'current_workspace_id');
+    }
+
+    public function purge()
+    {
+        DB::transaction(function () {
+            $this->expenses()->delete();
+            $this->expenseCategories()->delete();
+            $this->workspaceUsers()->delete();
+
+            $this->currentWorkspaceUsers->each(function ($user) {
+                $user->fill([
+                    'current_workspace_id' => null,
+                ])->update();
+
+                $user->switchWorkspace($user->getOrCreateCurrentWorkspace($this));
+            });
+
+            $this->delete();
+        });
     }
 }

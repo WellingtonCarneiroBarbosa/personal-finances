@@ -46,18 +46,33 @@ class User extends Authenticatable
         return $this->hasMany(Workspace::class);
     }
 
-    public function current_workspace()
+    public function currentWorkspace()
     {
         return $this->belongsTo(Workspace::class, 'current_workspace_id');
     }
 
-    public function currentWorkspace(): Workspace
+    public function getOrCreateCurrentWorkspace(Workspace $ignoreWorkspace = null): Workspace
     {
-        if (! $workspace = $this->current_workspace) {
-            return CreateNewWorkspace::run($this);
+        if ($this->current_workspace_id) {
+            $currentWorkspace = $this->currentWorkspace;
         }
 
-        return $workspace;
+        if (! isset($currentWorkspace)) {
+            $currentWorkspace = $this->workspaceUsers()
+                ->when($ignoreWorkspace, function ($query, $ignoreWorkspace) {
+                    return $query->where('workspace_id', '!=', $ignoreWorkspace->id);
+                })
+                ->first()?->workspace;
+        }
+
+        if (! $currentWorkspace ||
+            $ignoreWorkspace &&
+            $currentWorkspace->id === $ignoreWorkspace->id
+        ) {
+            $currentWorkspace = CreateNewWorkspace::run($this);
+        }
+
+        return $currentWorkspace;
     }
 
     public function isCurrentWorkspace(Workspace $workspace): bool
@@ -68,6 +83,11 @@ class User extends Authenticatable
     public function ownsOrBelongsToWorkspace(Workspace $workspace): bool
     {
         return $this->workspaces->contains($workspace) || WorkspaceUser::where('user_id', $this->id)->where('workspace_id', $workspace->id)->exists();
+    }
+
+    public function ownsTheWorkspace(Workspace $workspace): bool
+    {
+        return $this->workspaces->contains($workspace);
     }
 
     public function switchWorkspace(Workspace $workspace)

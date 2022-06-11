@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\App\Workspaces;
 
 use App\Actions\Application\Workspaces\CreateNewWorkspace;
+use App\Actions\Application\Workspaces\DeleteWorkspace;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WorkspaceStoreRequest;
 use App\Http\Requests\WorkspaceUpdateRequest;
@@ -117,7 +118,7 @@ class WorkspaceController extends Controller
     {
         $this->authorize('delete', $workspace);
 
-        $workspace->delete();
+        DeleteWorkspace::run($workspace);
 
         return redirect()
             ->route('workspaces.index')

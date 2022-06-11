@@ -17,6 +17,8 @@ return new class () extends Migration {
             $table->foreignId('user_id')->index();
             $table->foreignId('workspace_id')->index();
 
+            $table->unique(['user_id', 'workspace_id'], 'unique_workspace_user');
+
             $table->timestamps();
         });
     }

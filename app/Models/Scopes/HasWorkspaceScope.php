@@ -18,7 +18,7 @@ class HasWorkspaceScope implements Scope
     public function apply(Builder $builder, Model $model)
     {
         if (auth()->check()) {
-            $builder->where('workspace_id', auth()->user()->currentWorkspace()->id);
+            $builder->where('workspace_id', auth()->user()->getOrCreateCurrentWorkspace()->id);
         }
     }
 }

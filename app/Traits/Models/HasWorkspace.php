@@ -12,7 +12,7 @@ trait HasWorkspace
         static::creating(function (Model $model) {
             if (auth()->check()) {
                 if (! $model->workspace_id) {
-                    $model->workspace_id = auth()->user()->currentWorkspace()->id;
+                    $model->workspace_id = auth()->user()->getOrCreateCurrentWorkspace()->id;
                 }
             }
         });
