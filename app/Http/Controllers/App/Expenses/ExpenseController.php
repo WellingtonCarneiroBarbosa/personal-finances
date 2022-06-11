@@ -38,7 +38,7 @@ class ExpenseController extends Controller
     {
         $this->authorize('create', Expense::class);
 
-        $expenseCategories = ExpenseCategory::pluck('title', 'id');
+        $expenseCategories = ExpenseCategory::pluck('name', 'id');
 
         return view(
             'app.expenses.create',
@@ -82,7 +82,7 @@ class ExpenseController extends Controller
     {
         $this->authorize('update', $expense);
 
-        $expenseCategories = ExpenseCategory::pluck('title', 'id');
+        $expenseCategories = ExpenseCategory::pluck('name', 'id');
 
         return view(
             'app.expenses.edit',

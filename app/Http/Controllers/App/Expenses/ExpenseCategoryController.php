@@ -21,6 +21,8 @@ class ExpenseCategoryController extends Controller
         $search = $request->get('search', '');
 
         $expenseCategories = ExpenseCategory::search($search)
+            ->orderBy('default', 'desc')
+            ->orderBy('name', 'asc')
             ->latest()
             ->paginate(5)
             ->withQueryString();

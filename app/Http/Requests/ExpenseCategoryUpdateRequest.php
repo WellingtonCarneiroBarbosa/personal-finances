@@ -24,7 +24,7 @@ class ExpenseCategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'        => ['required', 'max:255', 'string'],
+            'name' => ['required', 'max:255', 'string'],
         ];
     }
 }

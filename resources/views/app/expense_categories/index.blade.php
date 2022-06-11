@@ -41,7 +41,7 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.expense_categories.inputs.title')
+                                    @lang('crud.expense_categories.inputs.name')
                                 </th>
                                 <th></th>
                             </tr>
@@ -50,7 +50,7 @@
                             @forelse($expenseCategories as $expenseCategory)
                                 <tr class="hover:bg-gray-50">
                                     <td class="px-4 py-3 text-left">
-                                        {{ $expenseCategory->title ?? '-' }}
+                                        {{ $expenseCategory->name ?? '-' }}
                                     </td>
                                     <td class="px-4 py-3 text-center" style="width: 134px;">
                                         <div role="group" aria-label="Row Actions"

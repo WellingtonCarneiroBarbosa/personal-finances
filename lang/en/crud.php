@@ -42,7 +42,7 @@ return [
         'edit_title'   => 'Edit Category',
         'show_title'   => 'Show Category',
         'inputs'       => [
-            'title'        => 'Title',
+            'name'        => 'Name',
         ],
     ],
 

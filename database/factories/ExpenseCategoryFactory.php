@@ -22,7 +22,7 @@ class ExpenseCategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title'        => $this->faker->sentence(10),
+            'name'         => $this->faker->word(),
             'workspace_id' => \App\Models\Workspace::factory(),
         ];
     }
