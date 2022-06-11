@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ExpenseCategoryController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\WorkspaceController;
+use App\Http\Controllers\App\Expenses\ExpenseCategoryController;
+use App\Http\Controllers\App\Expenses\ExpenseController;
+use App\Http\Controllers\App\Workspaces\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 
 /*

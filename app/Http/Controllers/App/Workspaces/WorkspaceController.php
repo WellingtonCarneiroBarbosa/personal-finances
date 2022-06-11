@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\App\Workspaces;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WorkspaceStoreRequest;
 use App\Http\Requests\WorkspaceUpdateRequest;
-use App\Http\Resources\WorkspaceCollection;
-use App\Http\Resources\WorkspaceResource;
 use App\Models\Workspace;
 use Illuminate\Http\Request;
 
@@ -24,9 +22,21 @@ class WorkspaceController extends Controller
 
         $workspaces = Workspace::search($search)
             ->latest()
-            ->paginate();
+            ->paginate(5)
+            ->withQueryString();
 
-        return new WorkspaceCollection($workspaces);
+        return view('app.workspaces.index', compact('workspaces', 'search'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $this->authorize('create', Workspace::class);
+
+        return view('app.workspaces.create');
     }
 
     /**
@@ -41,7 +51,9 @@ class WorkspaceController extends Controller
 
         $workspace = Workspace::create($validated);
 
-        return new WorkspaceResource($workspace);
+        return redirect()
+            ->route('workspaces.edit', $workspace)
+            ->withSuccess(__('crud.common.created'));
     }
 
     /**
@@ -53,7 +65,19 @@ class WorkspaceController extends Controller
     {
         $this->authorize('view', $workspace);
 
-        return new WorkspaceResource($workspace);
+        return view('app.workspaces.show', compact('workspace'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Workspace $workspace
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, Workspace $workspace)
+    {
+        $this->authorize('update', $workspace);
+
+        return view('app.workspaces.edit', compact('workspace'));
     }
 
     /**
@@ -71,7 +95,9 @@ class WorkspaceController extends Controller
 
         $workspace->update($validated);
 
-        return new WorkspaceResource($workspace);
+        return redirect()
+            ->route('workspaces.edit', $workspace)
+            ->withSuccess(__('crud.common.saved'));
     }
 
     /**
@@ -85,6 +111,8 @@ class WorkspaceController extends Controller
 
         $workspace->delete();
 
-        return response()->noContent();
+        return redirect()
+            ->route('workspaces.index')
+            ->withSuccess(__('crud.common.removed'));
     }
 }

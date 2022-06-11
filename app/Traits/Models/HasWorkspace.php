@@ -2,6 +2,7 @@
 
 namespace App\Traits\Models;
 
+use App\Models\Scopes\HasWorkspaceScope;
 use Illuminate\Database\Eloquent\Model;
 
 trait HasWorkspace
@@ -15,5 +16,7 @@ trait HasWorkspace
                 }
             }
         });
+
+        static::addGlobalScope(new HasWorkspaceScope());
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\App\Expenses;
 
 use App\Actions\Application\Expenses\CreateNewExpense;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ExpenseStoreRequest;
 use App\Http\Requests\ExpenseUpdateRequest;
 use App\Models\Expense;

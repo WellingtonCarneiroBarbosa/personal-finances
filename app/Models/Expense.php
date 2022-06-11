@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\HasWorkspaceScope;
 use App\Models\Scopes\Searchable;
 use App\Traits\Models\HasWorkspace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,11 +22,6 @@ class Expense extends Model
     ];
 
     protected $searchableFields = ['*'];
-
-    protected static function booted()
-    {
-        static::addGlobalScope(new HasWorkspaceScope());
-    }
 
     public function expenseCategory()
     {
