@@ -23,6 +23,12 @@
                     </x-jet-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('workspaces.index') }}" :active="request()->routeIs('workspaces.index')">
+                        {{ __('Workspaces') }}
+                    </x-jet-nav-link>
+                </div>
+
             </div>
 
             <div class="flex items-center ml-6">
@@ -52,11 +58,6 @@
                                     {{ __('Manage Workspace') }}
                                 </div>
 
-                                <!-- Team Settings -->
-                                <x-jet-dropdown-link
-                                    href="{{ route('workspaces.show', Auth::user()->currentWorkspace->id) }}">
-                                    {{ __('Workspace Settings') }}
-                                </x-jet-dropdown-link>
 
                                 <x-jet-dropdown-link href="{{ route('workspaces.create') }}">
                                     {{ __('Create New Workspace') }}

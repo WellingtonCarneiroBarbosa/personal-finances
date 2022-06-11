@@ -68,6 +68,19 @@
                                                 </a>
                                             @endcan
 
+                                            <form method="POST"
+                                                action="{{ route('workspaces.update-current', ['workspace' => $workspace]) }}"
+                                                x-data>
+                                                @method('PUT')
+                                                @csrf
+
+                                                <button class="button mr-1">
+                                                    <i
+                                                        class="icon ion-ios-checkmark-circle {{ auth()->user()->isCurrentWorkspace($workspace)? 'text-green-400': '' }}"></i>
+                                                </button>
+                                            </form>
+
+
                                             @can('delete', $workspace)
                                                 @if ($workspace->count() > 1)
                                                     <form action="{{ route('workspaces.destroy', $workspace) }}"
