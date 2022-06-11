@@ -85,7 +85,7 @@
                                                 @if ($workspace->count() > 1)
                                                     <form action="{{ route('workspaces.destroy', $workspace) }}"
                                                         method="POST"
-                                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')">
+                                                        onsubmit="return confirm('{{ __('crud.common.are_you_sure') . ' ' . __('All data related to this workspace will be deleted') }}')">
                                                         @csrf @method('DELETE')
                                                         <button type="submit" class="button">
                                                             <i
