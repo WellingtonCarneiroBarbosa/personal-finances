@@ -14,7 +14,7 @@ return [
         'delete'          => 'Delete',
         'delete_selected' => 'Delete selected',
         'search'          => 'Search...',
-        'back'            => 'Back to Index',
+        'back'            => 'Back to List',
         'are_you_sure'    => 'Are you sure?',
         'no_items_found'  => 'No items found',
         'created'         => 'Successfully created',
@@ -35,15 +35,14 @@ return [
     ],
 
     'expense_categories' => [
-        'name'         => 'Expense Categories',
-        'index_title'  => 'ExpenseCategories List',
-        'new_title'    => 'New Expense category',
-        'create_title' => 'Create ExpenseCategory',
-        'edit_title'   => 'Edit ExpenseCategory',
-        'show_title'   => 'Show ExpenseCategory',
+        'name'         => 'Categories',
+        'index_title'  => 'Categories List',
+        'new_title'    => 'New category',
+        'create_title' => 'Create Category',
+        'edit_title'   => 'Edit Category',
+        'show_title'   => 'Show Category',
         'inputs'       => [
             'title'        => 'Title',
-            'workspace_id' => 'Workspace',
         ],
     ],
 
@@ -51,15 +50,14 @@ return [
         'name'         => 'Expenses',
         'index_title'  => 'Expenses List',
         'new_title'    => 'New Expense',
-        'create_title' => 'Create Expense',
+        'create_title' => 'Register Expense',
         'edit_title'   => 'Edit Expense',
         'show_title'   => 'Show Expense',
         'inputs'       => [
             'title'               => 'Title',
             'cost'                => 'Cost',
             'description'         => 'Description',
-            'expense_category_id' => 'Expense Category',
-            'workspace_id'        => 'Workspace',
+            'expense_category_id' => 'Category',
         ],
     ],
 ];

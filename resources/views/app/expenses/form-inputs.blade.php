@@ -17,9 +17,8 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.select name="expense_category_id" label="Expense Category" required>
+        <x-inputs.select name="expense_category_id" :label="__('crud.expenses.inputs.expense_category_id')" required>
             @php $selected = old('expense_category_id', ($editing ? $expense->expense_category_id : '')) @endphp
-            <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Expense Category</option>
             @foreach ($expenseCategories as $value => $label)
                 <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }}>{{ $label }}
                 </option>

@@ -14,11 +14,15 @@ class ExpenseCategory extends Model
     use Searchable;
     use HasWorkspace;
 
-    protected $fillable = ['title', 'workspace_id'];
+    protected $fillable = ['title', 'workspace_id', 'default'];
 
     protected $searchableFields = ['*'];
 
     protected $table = 'expense_categories';
+
+    protected $casts = [
+        'default' => 'boolean',
+    ];
 
     protected static function booted()
     {

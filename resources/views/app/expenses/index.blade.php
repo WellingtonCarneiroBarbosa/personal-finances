@@ -29,7 +29,7 @@
                             @can('create', App\Models\Expense::class)
                                 <a href="{{ route('expenses.create') }}" class="button button-primary">
                                     <i class="mr-1 icon ion-md-add"></i>
-                                    @lang('crud.common.create')
+                                    {{ __('Register') }}
                                 </a>
                             @endcan
                         </div>

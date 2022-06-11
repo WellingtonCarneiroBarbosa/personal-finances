@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Application\Expenses\CreateNewExpense;
 use App\Http\Requests\ExpenseStoreRequest;
 use App\Http\Requests\ExpenseUpdateRequest;
 use App\Models\Expense;
@@ -52,11 +53,11 @@ class ExpenseController extends Controller
     {
         $this->authorize('create', Expense::class);
 
-        $expense = Expense::create($request->validated());
+        $expense = CreateNewExpense::run($request->validated());
 
         return redirect()
             ->route('expenses.edit', $expense)
-            ->withSuccess(__('crud.common.created'));
+            ->withSuccess(__('Expense registered'));
     }
 
     /**

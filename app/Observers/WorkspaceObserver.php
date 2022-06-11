@@ -12,6 +12,7 @@ class WorkspaceObserver
     {
         $category = ExpenseCategory::create([
             'title'        => 'General',
+            'default'      => true,
             'workspace_id' => $workspace->id,
         ]);
 

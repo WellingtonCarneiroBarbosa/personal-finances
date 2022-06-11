@@ -30,7 +30,7 @@
 
                         <button type="submit" class="button button-primary float-right">
                             <i class="mr-1 icon ion-md-save"></i>
-                            @lang('crud.common.create')
+                            {{ __('Register') }}
                         </button>
                     </div>
                 </x-form>

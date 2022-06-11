@@ -16,6 +16,7 @@ return new class () extends Migration {
             $table->bigIncrements('id');
             $table->string('title');
             $table->unsignedBigInteger('workspace_id');
+            $table->boolean('default')->default(false);
 
             $table->timestamps();
         });

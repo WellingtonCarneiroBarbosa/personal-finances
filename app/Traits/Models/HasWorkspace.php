@@ -10,7 +10,9 @@ trait HasWorkspace
     {
         static::creating(function (Model $model) {
             if (auth()->check()) {
-                $model->workspace_id = auth()->user()->currentWorkspace()->id;
+                if (! $model->workspace_id) {
+                    $model->workspace_id = auth()->user()->currentWorkspace()->id;
+                }
             }
         });
     }

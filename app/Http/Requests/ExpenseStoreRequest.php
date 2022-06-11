@@ -27,10 +27,7 @@ class ExpenseStoreRequest extends FormRequest
             'title'               => ['required', 'max:255', 'string'],
             'cost'                => ['required', 'regex:/^\d{1,13}(\.\d{1,4})?$/'],
             'description'         => ['nullable', 'max:255', 'string'],
-            'expense_category_id' => [
-                'required',
-                'exists:expense_categories,id',
-            ],
+            'expense_category_id' => ['exists:expense_categories,id',],
         ];
     }
 }
