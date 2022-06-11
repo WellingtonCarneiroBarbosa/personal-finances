@@ -70,9 +70,7 @@
                                 </div>
 
                                 @foreach (auth()->user()->workspaces as $workspace)
-                                    <x-jet-dropdown-link href="{{ route('workspaces.show', $workspace) }}">
-                                        {{ $workspace->name }}
-                                    </x-jet-dropdown-link>
+                                    <x-workspaces.switchable :workspace="$workspace" component="jet-responsive-nav-link" />
                                 @endforeach
                             </div>
                         </x-slot>

@@ -60,6 +60,27 @@ class User extends Authenticatable
         return $workspace;
     }
 
+    public function isCurrentWorkspace(Workspace $workspace): bool
+    {
+        return $this->current_workspace_id === $workspace->id;
+    }
+
+    public function ownsOrBelongsToWorkspace(Workspace $workspace): bool
+    {
+        return $this->workspaces->contains($workspace) || WorkspaceUser::where('user_id', $this->id)->where('workspace_id', $workspace->id)->exists();
+    }
+
+    public function switchWorkspace(Workspace $workspace)
+    {
+        if (! $this->ownsOrBelongsToWorkspace($workspace)) {
+            abort(403, "You don't have access to this workspace.");
+        }
+
+        $this->fill([
+            'current_workspace_id' => $workspace->id,
+        ])->update();
+    }
+
     public function isSuperAdmin()
     {
         return $this->hasRole('super-admin');

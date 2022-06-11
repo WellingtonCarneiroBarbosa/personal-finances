@@ -27,6 +27,8 @@ Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
         Route::resource('workspaces', WorkspaceController::class);
+        Route::put('workspaces/current/{workspace}', [WorkspaceController::class, 'updateCurrent'])->name('workspaces.update-current');
+
         Route::resource('expense-categories', ExpenseCategoryController::class);
         Route::resource('expenses', ExpenseController::class);
     });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\App\Workspaces;
 
+use App\Actions\Application\Workspaces\CreateNewWorkspace;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WorkspaceStoreRequest;
 use App\Http\Requests\WorkspaceUpdateRequest;
@@ -49,7 +50,7 @@ class WorkspaceController extends Controller
 
         $validated = $request->validated();
 
-        $workspace = Workspace::create($validated);
+        $workspace = CreateNewWorkspace::run(auth()->user(), $validated);
 
         return redirect()
             ->route('workspaces.edit', $workspace)
@@ -98,6 +99,13 @@ class WorkspaceController extends Controller
         return redirect()
             ->route('workspaces.edit', $workspace)
             ->withSuccess(__('crud.common.saved'));
+    }
+
+    public function updateCurrent(Workspace $workspace)
+    {
+        auth()->user()->switchWorkspace($workspace);
+
+        return redirect()->back()->withSuccess(__('crud.common.saved'));
     }
 
     /**
