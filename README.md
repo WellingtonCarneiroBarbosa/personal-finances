@@ -6,7 +6,7 @@ Requires: PHP8, Node18, Composer
 
 1. Clone the repo
 
-2. Setup your local (git hooks)[https://github.com/WellingtonCarneiroBarbosa/personal-finances/tree/main/hooks]
+2. Setup your local [git hooks](https://github.com/WellingtonCarneiroBarbosa/personal-finances/tree/main/hooks)
 
 3. Install php dependences
 `composer install`
