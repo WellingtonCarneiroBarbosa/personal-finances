@@ -68,7 +68,7 @@
                                         {{ $expense->description ?? '-' }}
                                     </td>
                                     <td class="px-4 py-3 text-left">
-                                        {{ optional($expense->expenseCategory)->title ?? '-' }}
+                                        {{ optional($expense->expenseCategory)->name ?? '-' }}
                                     </td>
                                     <td class="px-4 py-3 text-center" style="width: 134px;">
                                         <div role="group" aria-label="Row Actions"
