@@ -21,7 +21,7 @@ Requires: PHP8, Node18, Composer
 
     P.S: If there is a error, just compile the assets again
 
-6. Enable ide helpers - You should install [Laravel Ide Helper Plugin](https://marketplace.visualstudio.com/items?itemName=georgykurian.laravel-ide-helper&ssr=false#review-details)
+6. OPTIONAL: If you gonna develop, I recommend enabling the ide's helpers - You should install [Laravel Ide Helper Plugin](https://marketplace.visualstudio.com/items?itemName=georgykurian.laravel-ide-helper&ssr=false#review-details)
 
 
     `php artisan ide-helper:generate`
@@ -36,6 +36,7 @@ Requires: PHP8, Node18, Composer
 
     If you use PHPStorm, consider running
     `php artisan ide-helper:meta`
+    
 7. Link the assets
     `php artisan storage:link`
 
