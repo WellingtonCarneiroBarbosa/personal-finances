@@ -35,7 +35,7 @@
                     <td class="px-4 py-3 text-left">
                         @php
                             if ($expense['date']) {
-                                $date = \Carbon\Carbon::createFromDate($expense['date'])->format('d/m/Y');
+                                $date = \Carbon\Carbon::createFromDate($expense['date'])->format('m/d/Y');
                             }
                         @endphp
                         {{ $date ?? '-' }}
