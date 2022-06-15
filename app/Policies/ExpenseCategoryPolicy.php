@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\ExpenseCategory;
+use App\Models\Expense\ExpenseCategory;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,7 +25,7 @@ class ExpenseCategoryPolicy
      * Determine whether the expenseCategory can view the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\ExpenseCategory  $model
+     * @param  App\Models\Expense\ExpenseCategory  $model
      * @return mixed
      */
     public function view(User $user, ExpenseCategory $model)
@@ -48,7 +48,7 @@ class ExpenseCategoryPolicy
      * Determine whether the expenseCategory can update the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\ExpenseCategory  $model
+     * @param  App\Models\Expense\ExpenseCategory  $model
      * @return mixed
      */
     public function update(User $user, ExpenseCategory $model)
@@ -60,7 +60,7 @@ class ExpenseCategoryPolicy
      * Determine whether the expenseCategory can delete the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\ExpenseCategory  $model
+     * @param  App\Models\Expense\ExpenseCategory  $model
      * @return mixed
      */
     public function delete(User $user, ExpenseCategory $model)
@@ -72,7 +72,7 @@ class ExpenseCategoryPolicy
      * Determine whether the user can delete multiple instances of the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\ExpenseCategory  $model
+     * @param  App\Models\Expense\ExpenseCategory  $model
      * @return mixed
      */
     public function deleteAny(User $user)
@@ -84,7 +84,7 @@ class ExpenseCategoryPolicy
      * Determine whether the expenseCategory can restore the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\ExpenseCategory  $model
+     * @param  App\Models\Expense\ExpenseCategory  $model
      * @return mixed
      */
     public function restore(User $user, ExpenseCategory $model)
@@ -96,7 +96,7 @@ class ExpenseCategoryPolicy
      * Determine whether the expenseCategory can permanently delete the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\ExpenseCategory  $model
+     * @param  App\Models\Expense\ExpenseCategory  $model
      * @return mixed
      */
     public function forceDelete(User $user, ExpenseCategory $model)

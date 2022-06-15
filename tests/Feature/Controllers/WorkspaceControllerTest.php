@@ -3,7 +3,7 @@
 namespace Tests\Feature\Controllers;
 
 use App\Models\User;
-use App\Models\Workspace;
+use App\Models\Workspace\Workspace;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

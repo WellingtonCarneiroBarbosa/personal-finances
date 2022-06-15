@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Expense;
-use App\Models\ExpenseCategory;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseCategory;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;

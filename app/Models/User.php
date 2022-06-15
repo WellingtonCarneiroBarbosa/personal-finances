@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Actions\Application\Workspaces\CreateNewWorkspace;
-use App\Models\Scopes\Searchable;
+use App\Models\Concerns\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

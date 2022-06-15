@@ -6,7 +6,7 @@ use App\Actions\Application\Expenses\Category\DeleteCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExpenseCategoryStoreRequest;
 use App\Http\Requests\ExpenseCategoryUpdateRequest;
-use App\Models\ExpenseCategory;
+use App\Models\Expense\ExpenseCategory;
 use Illuminate\Http\Request;
 
 class ExpenseCategoryController extends Controller
@@ -64,7 +64,7 @@ class ExpenseCategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\ExpenseCategory $expenseCategory
+     * @param \App\Models\Expense\ExpenseCategory $expenseCategory
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, ExpenseCategory $expenseCategory)
@@ -76,7 +76,7 @@ class ExpenseCategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\ExpenseCategory $expenseCategory
+     * @param \App\Models\Expense\ExpenseCategory $expenseCategory
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, ExpenseCategory $expenseCategory)
@@ -91,7 +91,7 @@ class ExpenseCategoryController extends Controller
 
     /**
      * @param \App\Http\Requests\ExpenseCategoryUpdateRequest $request
-     * @param \App\Models\ExpenseCategory $expenseCategory
+     * @param \App\Models\Expense\ExpenseCategory $expenseCategory
      * @return \Illuminate\Http\Response
      */
     public function update(
@@ -111,7 +111,7 @@ class ExpenseCategoryController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\ExpenseCategory $expenseCategory
+     * @param \App\Models\Expense\ExpenseCategory $expenseCategory
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, ExpenseCategory $expenseCategory)

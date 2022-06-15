@@ -6,8 +6,8 @@ use App\Actions\Application\Expenses\CreateNewExpense;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ExpenseStoreRequest;
 use App\Http\Requests\ExpenseUpdateRequest;
-use App\Models\Expense;
-use App\Models\ExpenseCategory;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseCategory;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -63,7 +63,7 @@ class ExpenseController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Expense $expense
+     * @param \App\Models\Expense\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Expense $expense)
@@ -75,7 +75,7 @@ class ExpenseController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Expense $expense
+     * @param \App\Models\Expense\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Expense $expense)
@@ -92,7 +92,7 @@ class ExpenseController extends Controller
 
     /**
      * @param \App\Http\Requests\ExpenseUpdateRequest $request
-     * @param \App\Models\Expense $expense
+     * @param \App\Models\Expense\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function update(ExpenseUpdateRequest $request, Expense $expense)
@@ -110,7 +110,7 @@ class ExpenseController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Expense $expense
+     * @param \App\Models\Expense\Expense $expense
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Expense $expense)

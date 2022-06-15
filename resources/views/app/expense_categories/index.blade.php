@@ -26,7 +26,7 @@
                             </form>
                         </div>
                         <div class="md:w-1/2 text-right">
-                            @can('create', App\Models\ExpenseCategory::class)
+                            @can('create', App\Models\Expense\ExpenseCategory::class)
                                 <a href="{{ route('expense-categories.create') }}" class="button button-primary">
                                     <i class="mr-1 icon ion-md-add"></i>
                                     @lang('crud.common.create')

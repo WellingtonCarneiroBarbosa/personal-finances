@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Scopes;
+namespace App\Models\Concerns\Scopes;
 
 trait Searchable
 {

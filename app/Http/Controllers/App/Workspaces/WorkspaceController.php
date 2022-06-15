@@ -7,7 +7,7 @@ use App\Actions\Application\Workspaces\DeleteWorkspace;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WorkspaceStoreRequest;
 use App\Http\Requests\WorkspaceUpdateRequest;
-use App\Models\Workspace;
+use App\Models\Workspace\Workspace;
 use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
@@ -62,7 +62,7 @@ class WorkspaceController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Workspace $workspace
+     * @param \App\Models\Workspace\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Workspace $workspace)
@@ -74,7 +74,7 @@ class WorkspaceController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Workspace $workspace
+     * @param \App\Models\Workspace\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, Workspace $workspace)
@@ -86,7 +86,7 @@ class WorkspaceController extends Controller
 
     /**
      * @param \App\Http\Requests\WorkspaceUpdateRequest $request
-     * @param \App\Models\Workspace $workspace
+     * @param \App\Models\Workspace\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
     public function update(
@@ -113,7 +113,7 @@ class WorkspaceController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Workspace $workspace
+     * @param \App\Models\Workspace\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Workspace $workspace)

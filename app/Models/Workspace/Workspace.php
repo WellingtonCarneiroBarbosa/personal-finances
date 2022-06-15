@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Workspace;
 
-use App\Models\Scopes\HasUserScope;
-use App\Models\Scopes\Searchable;
+use App\Models\Concerns\Scopes\HasUserScope;
+use App\Models\Concerns\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +35,11 @@ class Workspace extends Model
     public function expenses()
     {
         return $this->hasMany(Expense::class);
+    }
+
+    public function incomes()
+    {
+        return $this->hasMany(Income::class);
     }
 
     public function user()

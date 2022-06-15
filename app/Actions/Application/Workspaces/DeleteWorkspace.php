@@ -2,8 +2,8 @@
 
 namespace App\Actions\Application\Workspaces;
 
-use App\Models\Workspace;
-use App\Models\WorkspaceUser;
+use App\Models\Workspace\Workspace;
+use App\Models\Workspace\WorkspaceUser;
 
 class DeleteWorkspace
 {

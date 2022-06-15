@@ -2,7 +2,7 @@
 
 namespace App\Actions\Application\Expenses\Category;
 
-use App\Models\ExpenseCategory;
+use App\Models\Expense\ExpenseCategory;
 
 class DeleteCategory
 {

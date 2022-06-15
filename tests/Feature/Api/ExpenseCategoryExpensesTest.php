@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Api;
 
-use App\Models\Expense;
-use App\Models\ExpenseCategory;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseCategory;
 use App\Models\User;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;

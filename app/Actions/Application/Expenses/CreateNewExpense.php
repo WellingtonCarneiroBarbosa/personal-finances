@@ -2,9 +2,9 @@
 
 namespace App\Actions\Application\Expenses;
 
-use App\Models\Expense;
-use App\Models\ExpenseCategory;
-use App\Models\Workspace;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseCategory;
+use App\Models\Workspace\Workspace;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CreateNewExpense

@@ -26,7 +26,7 @@
                             </form>
                         </div>
                         <div class="md:w-1/2 text-right">
-                            @can('create', App\Models\Workspace::class)
+                            @can('create', App\Models\Workspace\Workspace::class)
                                 <a href="{{ route('workspaces.create') }}" class="button button-primary">
                                     <i class="mr-1 icon ion-md-add"></i>
                                     @lang('crud.common.create')

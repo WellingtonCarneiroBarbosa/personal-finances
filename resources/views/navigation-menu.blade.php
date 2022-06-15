@@ -189,17 +189,17 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
 
-            @can('view-any', App\Models\Workspace::class)
+            @can('view-any', App\Models\Workspace\Workspace::class)
                 <x-jet-responsive-nav-link href="{{ route('workspaces.index') }}">
                     Workspaces
                 </x-jet-responsive-nav-link>
             @endcan
-            @can('view-any', App\Models\ExpenseCategory::class)
+            @can('view-any', App\Models\Expense\ExpenseCategory::class)
                 <x-jet-responsive-nav-link href="{{ route('expense-categories.index') }}">
                     Expense Categories
                 </x-jet-responsive-nav-link>
             @endcan
-            @can('view-any', App\Models\Expense::class)
+            @can('view-any', App\Models\Expense\Expense::class)
                 <x-jet-responsive-nav-link href="{{ route('expenses.index') }}">
                     Expenses
                 </x-jet-responsive-nav-link>

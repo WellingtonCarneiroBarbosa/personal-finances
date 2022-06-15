@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Expenses;
 
 use App\Http\Livewire\Concerns\WithInfiniteScrolling;
-use App\Models\Expense;
+use App\Models\Expense\Expense;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Livewire\Component;

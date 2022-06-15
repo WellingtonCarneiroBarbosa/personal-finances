@@ -3,8 +3,8 @@
 namespace Tests\Feature\Api;
 
 use App\Models\User;
-use App\Models\Workspace;
-use App\Models\WorkspaceUser;
+use App\Models\Workspace\Workspace;
+use App\Models\Workspace\WorkspaceUser;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

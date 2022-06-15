@@ -26,7 +26,7 @@
                             </form>
                         </div>
                         <div class="md:w-1/2 text-right">
-                            @can('create', App\Models\Expense::class)
+                            @can('create', App\Models\Expense\Expense::class)
                                 <a href="{{ route('expenses.create') }}" class="button button-primary">
                                     <i class="mr-1 icon ion-md-add"></i>
                                     {{ __('Register') }}

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
-use App\Models\Workspace;
+use App\Models\Workspace\Workspace;
 use App\Observers\UserObserver;
 use App\Observers\WorkspaceObserver;
 use Illuminate\Auth\Events\Registered;

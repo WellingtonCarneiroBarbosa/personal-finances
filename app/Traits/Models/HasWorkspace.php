@@ -2,7 +2,7 @@
 
 namespace App\Traits\Models;
 
-use App\Models\Scopes\HasWorkspaceScope;
+use App\Models\Concerns\Scopes\HasWorkspaceScope;
 use Illuminate\Database\Eloquent\Model;
 
 trait HasWorkspace

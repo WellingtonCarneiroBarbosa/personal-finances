@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Expense;
 
-use App\Models\Scopes\Searchable;
+use App\Models\Concerns\Scopes\Searchable;
 use App\Traits\Models\HasWorkspace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

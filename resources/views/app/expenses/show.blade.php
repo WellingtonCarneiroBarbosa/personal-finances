@@ -59,7 +59,7 @@
                         @lang('crud.common.back')
                     </a>
 
-                    @can('create', App\Models\Expense::class)
+                    @can('create', App\Models\Expense\Expense::class)
                         <a href="{{ route('expenses.create') }}" class="button">
                             <i class="mr-1 icon ion-md-add"></i>
                             @lang('crud.common.create')

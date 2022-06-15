@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Expense;
+use App\Models\Expense\Expense;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,7 +25,7 @@ class ExpensePolicy
      * Determine whether the expense can view the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\Expense  $model
+     * @param  App\Models\Expense\Expense  $model
      * @return mixed
      */
     public function view(User $user, Expense $model)
@@ -48,7 +48,7 @@ class ExpensePolicy
      * Determine whether the expense can update the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\Expense  $model
+     * @param  App\Models\Expense\Expense  $model
      * @return mixed
      */
     public function update(User $user, Expense $model)
@@ -60,7 +60,7 @@ class ExpensePolicy
      * Determine whether the expense can delete the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\Expense  $model
+     * @param  App\Models\Expense\Expense  $model
      * @return mixed
      */
     public function delete(User $user, Expense $model)
@@ -72,7 +72,7 @@ class ExpensePolicy
      * Determine whether the user can delete multiple instances of the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\Expense  $model
+     * @param  App\Models\Expense\Expense  $model
      * @return mixed
      */
     public function deleteAny(User $user)
@@ -84,7 +84,7 @@ class ExpensePolicy
      * Determine whether the expense can restore the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\Expense  $model
+     * @param  App\Models\Expense\Expense  $model
      * @return mixed
      */
     public function restore(User $user, Expense $model)
@@ -96,7 +96,7 @@ class ExpensePolicy
      * Determine whether the expense can permanently delete the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\Expense  $model
+     * @param  App\Models\Expense\Expense  $model
      * @return mixed
      */
     public function forceDelete(User $user, Expense $model)

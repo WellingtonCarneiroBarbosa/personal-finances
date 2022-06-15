@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\WorkspaceUser;
+use App\Models\Workspace\WorkspaceUser;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class WorkspaceUserPolicy
@@ -25,7 +25,7 @@ class WorkspaceUserPolicy
      * Determine whether the workspaceUser can view the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\WorkspaceUser  $model
+     * @param  App\Models\Workspace\WorkspaceUser  $model
      * @return mixed
      */
     public function view(User $user, WorkspaceUser $model)
@@ -48,7 +48,7 @@ class WorkspaceUserPolicy
      * Determine whether the workspaceUser can update the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\WorkspaceUser  $model
+     * @param  App\Models\Workspace\WorkspaceUser  $model
      * @return mixed
      */
     public function update(User $user, WorkspaceUser $model)
@@ -60,7 +60,7 @@ class WorkspaceUserPolicy
      * Determine whether the workspaceUser can delete the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\WorkspaceUser  $model
+     * @param  App\Models\Workspace\WorkspaceUser  $model
      * @return mixed
      */
     public function delete(User $user, WorkspaceUser $model)
@@ -72,7 +72,7 @@ class WorkspaceUserPolicy
      * Determine whether the user can delete multiple instances of the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\WorkspaceUser  $model
+     * @param  App\Models\Workspace\WorkspaceUser  $model
      * @return mixed
      */
     public function deleteAny(User $user)
@@ -84,7 +84,7 @@ class WorkspaceUserPolicy
      * Determine whether the workspaceUser can restore the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\WorkspaceUser  $model
+     * @param  App\Models\Workspace\WorkspaceUser  $model
      * @return mixed
      */
     public function restore(User $user, WorkspaceUser $model)
@@ -96,7 +96,7 @@ class WorkspaceUserPolicy
      * Determine whether the workspaceUser can permanently delete the model.
      *
      * @param  App\Models\User  $user
-     * @param  App\Models\WorkspaceUser  $model
+     * @param  App\Models\Workspace\WorkspaceUser  $model
      * @return mixed
      */
     public function forceDelete(User $user, WorkspaceUser $model)
