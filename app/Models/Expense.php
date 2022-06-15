@@ -23,9 +23,9 @@ class Expense extends Model
 
     protected $searchableFields = ['*'];
 
-    public function expenseCategory()
+    public function category()
     {
-        return $this->belongsTo(ExpenseCategory::class);
+        return $this->belongsTo(ExpenseCategory::class, 'expense_category_id', 'id');
     }
 
     public function workspace()

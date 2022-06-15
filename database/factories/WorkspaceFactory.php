@@ -22,8 +22,7 @@ class WorkspaceFactory extends Factory
     public function definition()
     {
         return [
-            'name'    => $this->faker->name,
-            'user_id' => \App\Models\User::factory(),
+            'name' => $this->faker->name,
         ];
     }
 }

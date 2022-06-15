@@ -36,7 +36,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.expenses.inputs.expense_category_id')
                         </h5>
-                        <span>{{ optional($expense->expenseCategory)->title ?? '-' }}</span>
+                        <span>{{ optional($expense->category)->title ?? '-' }}</span>
                     </div>
                 </div>
 
