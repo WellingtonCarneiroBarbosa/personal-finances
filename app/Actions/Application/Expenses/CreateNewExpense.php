@@ -39,7 +39,7 @@ class CreateNewExpense
 
         if (! isset($expenseCategory)) {
             $expenseCategory = ExpenseCategory::where('default', true)->firstOrCreate([
-                'title' => __('Default Category'),
+                'name' => __('General'),
             ]);
         }
 
