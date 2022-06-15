@@ -59,6 +59,7 @@ return [
             'cost'                => 'Cost',
             'description'         => 'Description',
             'expense_category_id' => 'Category',
+            'date'                => 'Date',
         ],
     ],
 ];

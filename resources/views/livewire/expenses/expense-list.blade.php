@@ -3,9 +3,6 @@
         <thead class="text-gray-700">
             <tr>
                 <th class="px-4 py-3 text-left">
-                    Id
-                </th>
-                <th class="px-4 py-3 text-left">
                     @lang('crud.expenses.inputs.title')
                 </th>
                 <th class="px-4 py-3 text-right">
@@ -13,6 +10,9 @@
                 </th>
                 <th class="px-4 py-3 text-left">
                     @lang('crud.expenses.inputs.description')
+                </th>
+                <th class="px-4 py-3 text-left">
+                    @lang('crud.expenses.inputs.date')
                 </th>
                 <th class="px-4 py-3 text-left">
                     @lang('crud.expenses.inputs.expense_category_id')
@@ -24,9 +24,6 @@
             @forelse ($expenses as $expense)
                 <tr class="hover:bg-gray-50">
                     <td class="px-4 py-3 text-left">
-                        {{ $expense['id'] ?? '-' }}
-                    </td>
-                    <td class="px-4 py-3 text-left">
                         {{ $expense['title'] ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-right">
@@ -34,6 +31,14 @@
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $expense['description'] ?? '-' }}
+                    </td>
+                    <td class="px-4 py-3 text-left">
+                        @php
+                            if ($expense['date']) {
+                                $date = \Carbon\Carbon::createFromDate($expense['date'])->format('d/m/Y');
+                            }
+                        @endphp
+                        {{ $date ?? '-' }}
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $expense['category']['name'] ?? '-' }}

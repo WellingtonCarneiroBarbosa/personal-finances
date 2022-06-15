@@ -34,9 +34,22 @@
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">
+                            @lang('crud.expenses.inputs.date')
+                        </h5>
+
+                        @php
+                            if ($expense['date']) {
+                                $date = \Carbon\Carbon::createFromDate($expense['date'])->format('d/m/Y');
+                            }
+                        @endphp
+
+                        <span>{{ $date ?? '-' }}</span>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="font-medium text-gray-700">
                             @lang('crud.expenses.inputs.expense_category_id')
                         </h5>
-                        <span>{{ optional($expense->category)->title ?? '-' }}</span>
+                        <span>{{ optional($expense->category)->name ?? '-' }}</span>
                     </div>
                 </div>
 

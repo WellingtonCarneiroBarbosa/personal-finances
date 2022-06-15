@@ -32,6 +32,6 @@ class ExpenseList extends Component
 
     public function expensesQuery(): Builder
     {
-        return Expense::with('category');
+        return Expense::with('category')->orderBy('date', 'desc');
     }
 }

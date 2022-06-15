@@ -16,6 +16,11 @@
             {{ old('description', $editing ? $expense->description : '') }}</x-inputs.textarea>
     </x-inputs.group>
 
+
+    <x-inputs.group class="w-full">
+        <x-inputs.date name="date" label="Date" value="{{ old('date', $editing ? $expense->date : '') }}" />
+    </x-inputs.group>
+
     <x-inputs.group class="w-full">
         <x-inputs.select name="expense_category_id" :label="__('crud.expenses.inputs.expense_category_id')" required>
             @php $selected = old('expense_category_id', ($editing ? $expense->expense_category_id : '')) @endphp

@@ -20,6 +20,7 @@ class WorkspaceObserver
             'title'               => "Workspace {$workspace->name} Example Expense",
             'cost'                => 14.50,
             'description'         => 'Example of an expense of $14.50',
+            'date'                => now(),
             'expense_category_id' => $category->id,
             'workspace_id'        => $workspace->id,
         ]);

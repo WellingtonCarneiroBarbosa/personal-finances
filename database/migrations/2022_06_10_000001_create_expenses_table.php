@@ -17,6 +17,7 @@ return new class () extends Migration {
             $table->string('title');
             $table->float('cost');
             $table->text('description')->nullable();
+            $table->date('date');
             $table->foreignId('expense_category_id')->index();
             $table->foreignId('workspace_id')->index();
 

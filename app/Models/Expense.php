@@ -17,8 +17,13 @@ class Expense extends Model
         'name',
         'cost',
         'description',
+        'date',
         'expense_category_id',
         'workspace_id',
+    ];
+
+    protected $casts = [
+        'date' => 'datetime:y-m-d',
     ];
 
     protected $searchableFields = ['*'];

@@ -25,6 +25,7 @@ class ExpenseFactory extends Factory
             'title'       => $this->faker->sentence(10),
             'cost'        => $this->faker->randomNumber(2),
             'description' => $this->faker->sentence(15),
+            'date'        => $this->faker->dateTimeBetween('-1 years', 'now'),
         ];
     }
 }

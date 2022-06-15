@@ -14,7 +14,8 @@ class CreateNewExpense
         $expenseFields = [
             'title'        => $input['title'],
             'cost'         => $input['cost'],
-            'description'  => $input['description'],
+            'description'  => $input['description'] ?? null,
+            'date'         => $input['date'],
         ];
 
         if ($workspace) {
