@@ -23,7 +23,8 @@ class ExpenseController extends Controller
         $search = $request->get('search', '');
 
         $expenses = Expense::search($search)
-            ->latest()
+            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc')
             ->paginate(5)
             ->withQueryString();
 
