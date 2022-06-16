@@ -12,10 +12,10 @@ class CreateNewExpense
     public static function run(array $input = [], ?Workspace $workspace = null): Expense
     {
         $expenseFields = [
-            'title'        => $input['title'],
-            'cost'         => $input['cost'],
-            'description'  => $input['description'] ?? null,
-            'date'         => $input['date'],
+            'title'         => $input['title'],
+            'cost'          => $input['cost'],
+            'description'   => $input['description'] ?? null,
+            'date'          => $input['date'],
         ];
 
         if ($workspace) {

@@ -15,7 +15,7 @@ class Expense extends Model
     use HasWorkspace;
 
     protected $fillable = [
-        'name',
+        'title',
         'cost',
         'description',
         'date',
