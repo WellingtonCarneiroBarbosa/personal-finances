@@ -82,10 +82,6 @@
                     </td>
                 </tr>
             @endforelse
-
-            @if ($hasMorePages)
-                @include('components.infinite-scrolling-script', ['method' => 'loadMoreExpenses'])
-            @endif
         </tbody>
 
         @if ($hasMorePages)
