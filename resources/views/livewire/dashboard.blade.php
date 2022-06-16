@@ -7,11 +7,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <x-partials.card>
-                You've spent: {{ $content['expenses'] }}
+                Spent: {{ $content['expenses'] }}
                 <br>
-                You've received: {{ $content['incomes'] }}
+                Received: {{ $content['incomes'] }}
                 <br>
-                Your current balance is: {{ $content['balance'] }}
+                Current Balance: {{ $content['balance'] }}
             </x-partials.card>
         </div>
     </div>
