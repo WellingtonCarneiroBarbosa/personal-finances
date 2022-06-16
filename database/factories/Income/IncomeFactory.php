@@ -1,7 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Income;
 
+use App\Models\Income\Income;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class IncomeFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Income::class;
+
     /**
      * Define the model's default state.
      *

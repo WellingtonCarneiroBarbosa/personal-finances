@@ -1,18 +1,18 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Expense;
 
-use App\Models\Workspace\Workspace;
+use App\Models\Expense\ExpenseCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class WorkspaceFactory extends Factory
+class ExpenseCategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Workspace::class;
+    protected $model = ExpenseCategory::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class WorkspaceFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->word(),
         ];
     }
 }

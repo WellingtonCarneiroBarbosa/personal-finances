@@ -4,6 +4,10 @@ namespace App\Models\Workspace;
 
 use App\Models\Concerns\Scopes\HasUserScope;
 use App\Models\Concerns\Scopes\Searchable;
+use App\Models\Expense\Expense;
+use App\Models\Expense\ExpenseCategory;
+use App\Models\Income\Income;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;

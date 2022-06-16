@@ -2,12 +2,15 @@
 
 namespace App\Models\Income;
 
+use App\Models\Workspace\Workspace;
+use App\Traits\Models\HasManyWorkspaces;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Income extends Model
 {
     use HasFactory;
+    use HasManyWorkspaces;
 
     protected $fillable = [
         'title',
@@ -23,6 +26,6 @@ class Income extends Model
 
     public function workspaces()
     {
-        return $this->belongsToMany(Workspace::class);
+        return $this->belongsToMany(Workspace::class, 'incomes_workspaces', 'income_id', 'workspace_id');
     }
 }

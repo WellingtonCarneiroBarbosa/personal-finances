@@ -3,6 +3,7 @@
 namespace App\Models\Expense;
 
 use App\Models\Concerns\Scopes\Searchable;
+use App\Models\Workspace\Workspace;
 use App\Traits\Models\HasWorkspace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

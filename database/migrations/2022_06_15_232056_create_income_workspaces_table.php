@@ -12,11 +12,9 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('income_workspaces', function (Blueprint $table) {
-            $table->id();
+        Schema::create('incomes_workspaces', function (Blueprint $table) {
             $table->foreignId('income_id')->constrained();
             $table->foreignId('workspace_id')->constrained();
-            $table->timestamps();
         });
     }
 
