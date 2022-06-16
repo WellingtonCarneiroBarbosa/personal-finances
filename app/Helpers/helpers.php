@@ -9,3 +9,10 @@ if (! function_exists('currency')) {
         return new Currency($currency, $user);
     }
 }
+
+if (! function_exists('timezones')) {
+    function timezones(): array
+    {
+        return \DateTimeZone::listIdentifiers();
+    }
+}

@@ -124,6 +124,11 @@
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('settings.show') }}">
+                                {{ __('Settings') }}
+                            </x-jet-dropdown-link>
+
+
                             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                                 <div class="border-t border-gray-200"></div>
 

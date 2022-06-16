@@ -4,6 +4,7 @@ use App\Http\Controllers\App\Expenses\ExpenseCategoryController;
 use App\Http\Controllers\App\Expenses\ExpenseController;
 use App\Http\Controllers\App\Incomes\IncomeController;
 use App\Http\Controllers\App\Workspaces\WorkspaceController;
+use App\Http\Livewire\User\Settings;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::middleware(['auth:sanctum', 'verified'])
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
+        Route::get('/user/settings', Settings::class)->name('settings.show');
+
         Route::resource('workspaces', WorkspaceController::class);
         Route::put('workspaces/current/{workspace}', [WorkspaceController::class, 'updateCurrent'])->name('workspaces.update-current');
 
