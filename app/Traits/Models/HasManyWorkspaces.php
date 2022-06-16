@@ -13,7 +13,7 @@ trait HasManyWorkspaces
             if (auth()->check()) {
                 $currentDefaultWorkspace = auth()->user()->getOrCreateCurrentWorkspace();
 
-                $model->workspaces()->attach($currentDefaultWorkspace);
+                $model->workspaces()->attach($currentDefaultWorkspace->pluck('id')->toArray());
             }
         });
 
