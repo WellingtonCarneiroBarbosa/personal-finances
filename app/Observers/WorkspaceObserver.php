@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Expense\Expense;
 use App\Models\Expense\ExpenseCategory;
+use App\Models\Income\Income;
 use App\Models\Workspace\Workspace;
 
 class WorkspaceObserver
@@ -15,6 +16,13 @@ class WorkspaceObserver
             'default'      => true,
             'workspace_id' => $workspace->id,
         ]);
+
+        Income::create([
+            'title'                 => "Income Example for {$workspace->name}",
+            'amount'                => 100,
+            'description'           => 'Example of an income of $100',
+            'date'                  => now(),
+        ])->workspaces()->attach($workspace);
 
         Expense::create([
             'title'               => "Workspace {$workspace->name} Example Expense",
