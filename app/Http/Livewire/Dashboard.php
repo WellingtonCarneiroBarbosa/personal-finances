@@ -29,7 +29,7 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->initializeFromAndTo();
+        //$this->initializeFromAndTo();
 
         $this->setTotalExpenses();
         $this->setTotalIncomes();
@@ -56,8 +56,8 @@ class Dashboard extends Component
         $balance  = $this->balance;
 
         $this->content         = compact('expenses', 'incomes', 'balance');
-        $this->content['from'] = Carbon::parse($this->from)->format('m/d/Y');
-        $this->content['to']   = Carbon::parse($this->to)->format('m/d/Y');
+        //$this->content['from'] = Carbon::parse($this->from)->format('m/d/Y');
+        //$this->content['to']   = Carbon::parse($this->to)->format('m/d/Y');
     }
 
     protected function setBalance(float $costs, float $incomes): void
@@ -67,11 +67,11 @@ class Dashboard extends Component
 
     protected function setTotalIncomes(): void
     {
-        $this->totalIncomes = (float)Income::whereBetween('date', [$this->from, $this->to])->sum('amount');
+        $this->totalIncomes = (float)Income::sum('amount');
     }
 
     protected function setTotalExpenses(): void
     {
-        $this->totalExpenses = (float)Expense::whereBetween('date', [$this->from, $this->to])->sum('cost');
+        $this->totalExpenses = (float)Expense::sum('cost');
     }
 }
