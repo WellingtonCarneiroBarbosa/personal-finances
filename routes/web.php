@@ -4,6 +4,7 @@ use App\Http\Controllers\App\Expenses\ExpenseCategoryController;
 use App\Http\Controllers\App\Expenses\ExpenseController;
 use App\Http\Controllers\App\Incomes\IncomeController;
 use App\Http\Controllers\App\Workspaces\WorkspaceController;
+use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\User\Settings;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])
-    ->get('/dashboard', [ExpenseController::class, 'index'])->name('dashboard');
+    ->get('/dashboard', Dashboard::class)->name('dashboard');
 
 Route::prefix('/')
     ->middleware(['auth:sanctum', 'verified'])
