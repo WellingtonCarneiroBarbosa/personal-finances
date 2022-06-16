@@ -18,7 +18,6 @@
             {{ old('description', $editing ? $expense->description : '') }}</x-inputs.textarea>
     </x-inputs.group>
 
-
     <x-inputs.group class="w-full">
         <x-inputs.date name="date" label="Date"
             value="{{ old('date', $editing ? $expense->date->format('Y-m-d') : now()->format('Y-m-d')) }}" />
