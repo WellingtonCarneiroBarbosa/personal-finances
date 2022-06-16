@@ -34,7 +34,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($validatedInput['password']),
         ]);
 
-        if (! emptyArray($settings)) {
+        if (! count($settings) === 0) {
             $user->settings->fill($settings)->update();
         }
 
