@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Income\Income;
 use App\Models\User;
 use App\Models\Workspace\Workspace;
+use App\Observers\Income\IncomeObserver;
 use App\Observers\UserObserver;
 use App\Observers\WorkspaceObserver;
 use Illuminate\Auth\Events\Registered;
@@ -25,6 +27,10 @@ class EventServiceProvider extends ServiceProvider
 
         Workspace::class => [
             WorkspaceObserver::class,
+        ],
+
+        Income::class => [
+            IncomeObserver::class,
         ],
     ];
 

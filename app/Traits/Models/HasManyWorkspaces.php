@@ -9,7 +9,7 @@ trait HasManyWorkspaces
 {
     protected static function bootHasManyWorkspaces()
     {
-        static::creating(function (Model $model) {
+        static::created(function (Model $model) {
             if (auth()->check()) {
                 $currentDefaultWorkspace = auth()->user()->getOrCreateCurrentWorkspace();
 

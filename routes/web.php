@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\App\Expenses\ExpenseCategoryController;
 use App\Http\Controllers\App\Expenses\ExpenseController;
+use App\Http\Controllers\App\Incomes\IncomeController;
 use App\Http\Controllers\App\Workspaces\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,5 @@ Route::prefix('/')
 
         Route::resource('expense-categories', ExpenseCategoryController::class);
         Route::resource('expenses', ExpenseController::class);
+        Route::resource('incomes', IncomeController::class);
     });

@@ -13,7 +13,7 @@ class StoreIncomeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreIncomeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'       => 'required|string|max:255',
+            'amount'      => ['required', 'regex:/^\d{1,13}(\.\d{1,4})?$/'],
+            'date'        => 'required|date',
+            'description' => 'nullable|string|max:255',
         ];
     }
 }

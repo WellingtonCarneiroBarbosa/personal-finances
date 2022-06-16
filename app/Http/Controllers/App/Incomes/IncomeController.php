@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\App\Incomes;
 
+use App\Actions\Application\Incomes\CreateNewIncome;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreIncomeRequest;
 use App\Http\Requests\UpdateIncomeRequest;
-use App\Models\Income;
+use App\Models\Income\Income;
+use Illuminate\Http\Request;
 
 class IncomeController extends Controller
 {
@@ -13,9 +16,18 @@ class IncomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $this->authorize('view-any', Expense::class);
+
+        $search = $request->get('search', '');
+
+        $incomes = Income::search($search)
+                ->orderBy('date', 'desc')
+                ->paginate(5)
+                ->withQueryString();
+
+        return view('app.incomes.index', compact('incomes', 'search'));
     }
 
     /**
@@ -25,7 +37,9 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Income::class);
+
+        return view('app.incomes.create');
     }
 
     /**
@@ -36,7 +50,13 @@ class IncomeController extends Controller
      */
     public function store(StoreIncomeRequest $request)
     {
-        //
+        $this->authorize('create', Income::class);
+
+        $income = CreateNewIncome::run($request->validated());
+
+        return redirect()
+            ->route('incomes.edit', $income)
+            ->withSuccess(__('Income registered'));
     }
 
     /**
@@ -47,7 +67,9 @@ class IncomeController extends Controller
      */
     public function show(Income $income)
     {
-        //
+        $this->authorize('view', $income);
+
+        return view('app.incomes.show', compact('income'));
     }
 
     /**
@@ -58,7 +80,9 @@ class IncomeController extends Controller
      */
     public function edit(Income $income)
     {
-        //
+        $this->authorize('update', $income);
+
+        return view('app.incomes.edit', compact('income'));
     }
 
     /**
@@ -70,7 +94,13 @@ class IncomeController extends Controller
      */
     public function update(UpdateIncomeRequest $request, Income $income)
     {
-        //
+        $this->authorize('update', $income);
+
+        $income->fill($request->validated())->update();
+
+        return redirect()
+            ->route('incomes.edit', $income)
+            ->withSuccess(__('crud.common.saved'));
     }
 
     /**
@@ -81,6 +111,12 @@ class IncomeController extends Controller
      */
     public function destroy(Income $income)
     {
-        //
+        $this->authorize('delete', $income);
+
+        $income->delete();
+
+        return redirect()
+            ->route('incomes.index')
+            ->withSuccess(__('crud.common.removed'));
     }
 }

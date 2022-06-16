@@ -62,4 +62,19 @@ return [
             'date'                => 'Date',
         ],
     ],
+
+    'incomes' => [
+        'name'         => 'Incomes',
+        'index_title'  => 'Incomes List',
+        'new_title'    => 'New Income',
+        'create_title' => 'Register Income',
+        'edit_title'   => 'Edit Income',
+        'show_title'   => 'Show Income',
+        'inputs'       => [
+            'title'               => 'Title',
+            'amount'              => 'Amount',
+            'description'         => 'Description',
+            'date'                => 'Date',
+        ],
+    ],
 ];

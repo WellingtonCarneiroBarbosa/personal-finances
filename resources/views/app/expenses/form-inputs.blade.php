@@ -7,8 +7,8 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.number name="cost" label="Cost" value="{{ old('cost', $editing ? $expense->cost : '') }}" max="255"
-            step="0.01" placeholder="Cost" required></x-inputs.number>
+        <x-inputs.number name="cost" label="Cost" value="{{ old('cost', $editing ? $expense->cost : 0) }}" step="0.01"
+            placeholder="Cost" required></x-inputs.number>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
@@ -18,7 +18,8 @@
 
 
     <x-inputs.group class="w-full">
-        <x-inputs.date name="date" label="Date" value="{{ old('date', $editing ? $expense->date : '') }}" />
+        <x-inputs.date name="date" label="Date"
+            value="{{ old('date', $editing ? $income->date->format('Y-m-d') : now()->format('Y-m-d')) }}" />
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
