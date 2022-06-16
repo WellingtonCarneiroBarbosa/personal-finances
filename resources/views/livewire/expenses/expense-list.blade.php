@@ -5,7 +5,7 @@
                 <th class="px-4 py-3 text-left">
                     @lang('crud.expenses.inputs.title')
                 </th>
-                <th class="px-4 py-3 text-right">
+                <th class="px-4 py-3 text-left">
                     @lang('crud.expenses.inputs.cost')
                 </th>
                 <th class="px-4 py-3 text-left">
@@ -26,8 +26,8 @@
                     <td class="px-4 py-3 text-left">
                         {{ $expense['title'] ?? '-' }}
                     </td>
-                    <td class="px-4 py-3 text-right">
-                        {{ $expense['cost'] ?? '-' }}
+                    <td class="px-4 py-3 text-left w-48">
+                        {{ currency($expense['cost'] ?? 0, auth()->user())->toReadable() }}
                     </td>
                     <td class="px-4 py-3 text-left">
                         {{ $expense['description'] ?? '-' }}

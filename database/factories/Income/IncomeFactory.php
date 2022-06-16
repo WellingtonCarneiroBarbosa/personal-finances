@@ -26,7 +26,7 @@ class IncomeFactory extends Factory
     {
         return [
             'title'       => $this->faker->word,
-            'amount'      => $this->faker->randomFloat(2, 0, 10000),
+            'amount'      => $this->faker->randomFloat(2, 0, 10000000000),
             'date'        => $this->faker->dateTimeBetween('-1 year', 'now'),
             'description' => $this->faker->optional()->text,
         ];

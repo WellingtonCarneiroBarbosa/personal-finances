@@ -11,6 +11,11 @@ class UserObserver
     {
         $personalWorkspace = CreateNewWorkspace::run($user);
 
+        $user->settings()->create([
+            'timezone' => config('app.timezone'),
+            'locale'   => config('app.locale'),
+        ]);
+
         $user->fill([
             'current_workspace_id' => $personalWorkspace->id,
         ])->update();

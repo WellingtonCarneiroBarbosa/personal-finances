@@ -26,6 +26,11 @@ class ApplicationLocalSeeder extends Seeder
                                 'password' => Hash::make('password'),
                             ]);
 
+            $user->settings->fill([
+                'timezone' => 'America/Sao_Paulo',
+                'locale'   => 'pt-BR',
+            ])->update();
+
             $workspace = $user->currentWorkspace;
 
             ExpenseCategory::factory()

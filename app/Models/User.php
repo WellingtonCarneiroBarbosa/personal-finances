@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->belongsTo(Workspace::class, 'current_workspace_id');
     }
 
+    public function settings()
+    {
+        return $this->hasOne(UserSetting::class);
+    }
+
     public function getOrCreateCurrentWorkspace(Workspace $ignoreWorkspace = null): Workspace
     {
         if ($this->current_workspace_id) {

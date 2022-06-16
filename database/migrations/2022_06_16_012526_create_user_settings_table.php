@@ -12,14 +12,12 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('expenses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->unsignedDecimal('cost', 65, 2);
-            $table->text('description')->nullable();
-            $table->date('date');
-            $table->foreignId('expense_category_id')->index();
-            $table->foreignId('workspace_id')->index();
+        Schema::create('user_settings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained();
+
+            $table->string('timezone')->default('UTC');
+            $table->string('locale')->default('en-US');
 
             $table->timestamps();
         });
@@ -32,6 +30,6 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('expenses');
+        Schema::dropIfExists('user_settings');
     }
 };

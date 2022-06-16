@@ -24,7 +24,7 @@
                         <h5 class="font-medium text-gray-700">
                             @lang('crud.expenses.inputs.cost')
                         </h5>
-                        <span>{{ $expense->cost ?? '-' }}</span>
+                        <span> {{ currency($expense['cost'] ?? 0, auth()->user())->toReadable() }}</span>
                     </div>
                     <div class="mb-4">
                         <h5 class="font-medium text-gray-700">

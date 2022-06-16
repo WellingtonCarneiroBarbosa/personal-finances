@@ -15,7 +15,7 @@ return new class () extends Migration {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->float('amount');
+            $table->unsignedDecimal('amount', 65, 2);
             $table->string('description')->nullable();
             $table->date('date');
             $table->timestamps();

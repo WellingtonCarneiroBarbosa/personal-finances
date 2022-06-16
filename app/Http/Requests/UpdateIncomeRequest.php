@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Helpers\Currency;
+use App\Rules\CurrencyRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateIncomeRequest extends FormRequest
@@ -16,6 +18,13 @@ class UpdateIncomeRequest extends FormRequest
         return true;
     }
 
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'amount' => (new Currency($this->amount))->toFloat(),
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,7 +34,7 @@ class UpdateIncomeRequest extends FormRequest
     {
         return [
             'title'       => 'required|string|max:255',
-            'amount'      => 'required|regex:/^\d{1,13}(\.\d{1,4})?$/',
+            'amount'      => ['required', new CurrencyRule()],
             'date'        => 'required|date',
             'description' => 'nullable|string|max:255',
         ];

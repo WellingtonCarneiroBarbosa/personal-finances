@@ -7,8 +7,10 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.number name="amount" label="Amount" value="{{ old('amount', $editing ? $income->amount : 0) }}"
-            step="0.01" placeholder="amount" required></x-inputs.number>
+        <x-inputs.text name="amount" label="Amount"
+            value="{{ old('amount', currency($editing ? $income['amount'] : 0, auth()->user())->toReadable()) }}"
+            step="0.01" placeholder="amount" required>
+            </x-inputs.number>
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
