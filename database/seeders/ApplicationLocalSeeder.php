@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Expense\Expense;
 use App\Models\Expense\ExpenseCategory;
 use App\Models\Income\Income;
+use App\Models\Income\RecurringIncome;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -46,6 +47,10 @@ class ApplicationLocalSeeder extends Seeder
                     ->create()
                     ->each(function (Income $income) use ($workspace) {
                         $income->workspaces()->attach($workspace->pluck('id')->toArray());
+
+                        if (1 === rand(0, 1) || $income->id === 1) {
+                            $income->recurring()->save(RecurringIncome::factory()->for($workspace, 'workspace')->make());
+                        }
                     });
         }
     }

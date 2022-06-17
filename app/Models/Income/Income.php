@@ -30,4 +30,9 @@ class Income extends Model
     {
         return $this->belongsToMany(Workspace::class, 'incomes_workspaces', 'income_id', 'workspace_id');
     }
+
+    public function recurring()
+    {
+        return $this->hasOne(RecurringIncome::class);
+    }
 }
