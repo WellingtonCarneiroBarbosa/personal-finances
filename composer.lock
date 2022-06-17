@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79d8fe9b5630ca984b7aeca2dcc92af5",
+    "content-hash": "66e9ec9335f09a243a0a7397261963e5",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5696,6 +5696,54 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wellingtoncarneirobarbosa/laravel-custom-migrations-paths",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WellingtonCarneiroBarbosa/laravel-custom-migrations-paths.git",
+                "reference": "7dd8d2cbdc0f45e5d2fb08e04ecb2b333466a160"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WellingtonCarneiroBarbosa/laravel-custom-migrations-paths/zipball/7dd8d2cbdc0f45e5d2fb08e04ecb2b333466a160",
+                "reference": "7dd8d2cbdc0f45e5d2fb08e04ecb2b333466a160",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^9.17"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WellingtonCarneiroBarbosa\\LaravelCustomMigrationsPaths\\Providers\\MigrationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WellingtonCarneiroBarbosa\\LaravelCustomMigrationsPaths\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wellington Barbosa",
+                    "email": "owellingtoncarneirobarbosa@gmail.com"
+                }
+            ],
+            "description": "Create custom paths for your laravel migrations",
+            "support": {
+                "issues": "https://github.com/WellingtonCarneiroBarbosa/laravel-custom-migrations-paths/issues",
+                "source": "https://github.com/WellingtonCarneiroBarbosa/laravel-custom-migrations-paths/tree/master"
+            },
+            "time": "2022-06-17T06:59:19+00:00"
         }
     ],
     "packages-dev": [
@@ -10178,7 +10226,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "wellingtoncarneirobarbosa/laravel-custom-migrations-paths": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -14,7 +14,8 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "wellingtoncarneirobarbosa/laravel-custom-migrations-paths": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
